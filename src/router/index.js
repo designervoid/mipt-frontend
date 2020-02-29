@@ -2,7 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Login from "../views/Login.vue";
 import Loader from "../views/Loader.vue";
-import UserProfile from "../views/UserProfile";
+import Requests from "../views/Requests.vue";
+import News from "../views/News.vue";
 
 Vue.use(VueRouter);
 
@@ -18,9 +19,14 @@ const routes = [
     component: Loader
   },
   {
-    path: "/user-profile",
-    name: "UserProfile",
-    component: UserProfile
+    path: "/requests",
+    name: "Requests",
+    component: Requests
+  },
+  {
+    path: "/news",
+    name: "News",
+    component: News
   }
 ];
 

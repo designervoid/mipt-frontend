@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import tokenHandling from '@/store/modules/tokenHandler';
+import tokenHandling from "@/store/modules/tokenHandler";
 import auth from "@/store/modules/auth";
 
 Vue.use(Vuex);

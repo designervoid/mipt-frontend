@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios from "axios";
 
 const http = axios.create({
   headers: {
-    'content-type': 'application/json',
-    Authorization: '',
-  },
+    "content-type": "application/json",
+    Authorization: ""
+  }
 });
 
 http.interceptors.request.use(

@@ -1,4 +1,5 @@
 <template>
+
 <section>
   <!-- <code>{{ this.$v }}</code> <br>
   <code>{{ focus }}</code> <br>
@@ -17,6 +18,7 @@
          С вами наш жилищно-бытовой сервис</p>
       <b-field label="" :type="validateField('email')">
         <b-input class="input-field e-mail" v-model.trim="form.email" @input="setField('email', $event)" @focus="onFocusField('email')" @blur="onBlurField('email')">
+
         </b-input>
       </b-field>
 
@@ -30,14 +32,19 @@
 
 
 </section>
+
 </template>
 
 <script>
+
 import {
   required,
   email,
   minLength,
 } from 'vuelidate/lib/validators'
+import {
+  mapActions
+} from 'vuex';
 
 export default {
   data() {
@@ -77,6 +84,12 @@ export default {
     }
   },
   methods: {
+    ...mapActions('auth', ['getToken']),
+    login() {
+      const email = this.form.email;
+      const password = this.form.password;
+      this.getToken({ email, password });
+    },
     setField(key, value) {
       this.form[key] = value;
       this.$v.form[key].$touch()
@@ -101,6 +114,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
 section {
   display: flex;
   justify-content: center;

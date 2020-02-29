@@ -3,6 +3,7 @@
     <router-view />
   </div>
 </template>
+
 <style media="screen">
   html {
     height: 100%;

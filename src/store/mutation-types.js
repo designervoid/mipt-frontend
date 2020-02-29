@@ -3,3 +3,5 @@ export const REMOVE_TOKEN = "REMOVE_TOKEN";
 export const SET_USER = "SET_USER";
 export const SET_ACTION = "SET_ACTION";
 export const SET_CONTEXT = "SET_CONTEXT";
+export const SET_SIDEBAR_HEADER = "SET_SIDEBAR_HEADER";
+export const SET_SIDEBAR_NAVIGATION = "SET_SIDEBAR_NAVIGATION";

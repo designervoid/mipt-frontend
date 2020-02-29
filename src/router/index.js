@@ -4,6 +4,7 @@ import Login from "../views/Login.vue";
 import Loader from "../views/Loader.vue";
 import Requests from "../views/Requests.vue";
 import News from "../views/News.vue";
+import ContactsProfile from "../views/ContactsProfile.vue";
 
 Vue.use(VueRouter);
 
@@ -19,15 +20,22 @@ const routes = [
     component: Loader
   },
   {
+    path: "/news",
+    name: "News",
+    component: News
+  },
+  {
     path: "/requests",
     name: "Requests",
     component: Requests
   },
   {
-    path: "/news",
-    name: "News",
-    component: News
-  }
+    path: "/contacts-profile",
+    name: "ContactsProfile",
+    component: ContactsProfile
+  },
+
+
 ];
 
 const router = new VueRouter({

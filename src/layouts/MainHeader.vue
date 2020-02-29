@@ -29,34 +29,16 @@
       <div class="navbar-start"></div>
 
       <div class="navbar-end">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            More
-          </a>
+        <a class="navbar-item" @click="pushToPersonalArea();">
+          Личный кабинет
+        </a>
 
-          <div class="navbar-dropdown">
-            <a class="navbar-item navbar-dropdown-item">
-              About
-            </a>
-            <a class="navbar-item navbar-dropdown-item">
-              Jobs
-            </a>
-            <a class="navbar-item navbar-dropdown-item">
-              Contact
-            </a>
-            <hr class="navbar-divider" />
-            <a class="navbar-item navbar-dropdown-item">
-              Report an issue
-            </a>
-          </div>
-        </div>
-
-        <a class="navbar-item">
-          Home
+        <a class="navbar-item" @click="pushToContactsProfile();">
+          Профиль
         </a>
 
         <a class="navbar-item">
-          Documentation
+          Выход
         </a>
       </div>
     </div>
@@ -64,6 +46,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   data() {
     return {
@@ -71,9 +54,18 @@ export default {
     };
   },
   methods: {
+    ...mapActions('sidebar', ['changeSidebarHeader']),
     toggleMenu() {
       this.isToggledMenu = !this.isToggledMenu;
-    }
+    },
+    pushToPersonalArea() {
+      this.changeSidebarHeader({ headerText: 'Личный кабинет' });
+      this.$router.push('/news');
+    },
+    pushToContactsProfile() {
+      this.changeSidebarHeader({ headerText: 'Профиль' });
+      this.$router.push('/contacts-profile');
+    },
   }
 };
 </script>

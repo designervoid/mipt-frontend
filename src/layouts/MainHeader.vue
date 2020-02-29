@@ -1,7 +1,7 @@
 <template lang="html">
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <router-link to="/user-profile" class="navbar-item">
+      <router-link to="/user-profile" class="navbar-item navbar-logo">
         <img src="@/assets/mipt_rus_inv.png" alt="" />
       </router-link>
 
@@ -64,7 +64,7 @@ export default {
     },
     pushToContactsProfile() {
       this.changeSidebarHeader({ headerText: 'Профиль' });
-      this.$router.push('/contacts-profile');
+      // this.$router.push('/contacts-profile');
     },
     exit() {
       this.changeSidebarHeader({ headerText: '' });
@@ -79,12 +79,12 @@ nav {
   background-color: #0069b4;
   height: 80px;
 }
+.navbar-logo {
+  margin-left: 3.5rem;
+}
 .navbar-item,
 .navbar-link {
-  color: black;
-}
-.navbar-dropdown-item {
-  color: black;
+  color: #ffffff;
 }
 
 @media screen and (max-width: 979px) {

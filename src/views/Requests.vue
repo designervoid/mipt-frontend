@@ -9,7 +9,7 @@
             <div class="wrapped-container">
               <div class="columns">
                 <div class="column is-12">
-                  <h1 class="title is-2">Заявки</h1>
+                  <h1 class="title" v-bind:class="!isMobile ? 'is-2' : 'is-4'">Заявки</h1>
                   <p class="is-size-5">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -27,7 +27,7 @@
               </div>
               <div class="columns">
                 <div class="column is-12">
-                  <h1 class="title is-2">Предыдущие заявки</h1>
+                  <h1 class="title" v-bind:class="!isMobile ? 'is-2' : 'is-4'">Предыдущие заявки</h1>
                   <BlockRequests
                     v-for="(request, index) in requests"
                     :key="index"

@@ -6,6 +6,7 @@ import store from "@/store";
 import Buefy from "buefy";
 import Vuelidate from "vuelidate";
 import VueWait from "vue-wait";
+import vAvatar from '@amaury-tobias/v-avatar'
 
 import Preloader from "./components/Preloader";
 import MainHeader from "./layouts/MainHeader";
@@ -37,6 +38,7 @@ Vue.use(Buefy, {
 });
 Vue.use(Vuelidate);
 Vue.use(VueWait);
+Vue.use(vAvatar)
 
 new Vue({
   router,

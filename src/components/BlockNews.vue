@@ -5,8 +5,8 @@
         {{ header }}
       </div>
       <div class="wrapped-left-description">
-        <span>{{ shortDescription }}</span><br />
-        <span>{{ text }}</span>
+        <div class="shortDescription">{{ shortDescription }}</div>
+        <div class="text">{{ text }}</div>
       </div>
     </div>
     <div class="wrapped-right-block" v-bind:style="{ 'background-color': mark.color }" @click="selectMark(mark.text)">
@@ -69,7 +69,8 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-
+  white-space: nowrap;
+  overflow: auto;
 }
 .wrapped-left-block {
   text-align: left;
@@ -85,6 +86,14 @@ export default {
   color: #ffffff;
   border-radius: 50px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.125);
+}
+.wrapped-left-description {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.shortDescription {
+  margin-bottom: 1rem;
 }
 
 </style>

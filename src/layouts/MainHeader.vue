@@ -29,17 +29,17 @@
       <div class="navbar-start"></div>
 
       <div class="navbar-end">
-        <a class="navbar-item" @click="pushToPersonalArea();">
+        <router-link class="navbar-item" to="/news" @click="pushToPersonalArea();">
           Личный кабинет
-        </a>
+        </router-link>
 
-        <a class="navbar-item" @click="pushToContactsProfile();">
+        <router-link class="navbar-item" to="/data-profile" @click="pushToContactsProfile();">
           Профиль
-        </a>
+        </router-link>
 
-        <a class="navbar-item" @click="exit();">
+        <router-link class="navbar-item" to="/login" @click="exit();">
           Выход
-        </a>
+        </router-link>
       </div>
     </div>
   </nav>
@@ -60,15 +60,12 @@ export default {
     },
     pushToPersonalArea() {
       this.changeSidebarHeader({ headerText: 'Личный кабинет' });
-      this.$router.push('/news');
     },
     pushToContactsProfile() {
       this.changeSidebarHeader({ headerText: 'Профиль' });
-      // this.$router.push('/contacts-profile');
     },
     exit() {
       this.changeSidebarHeader({ headerText: '' });
-      this.$router.push('/login');
     }
   }
 };
@@ -90,6 +87,13 @@ nav {
 @media screen and (max-width: 979px) {
   nav {
     height: 100%;
+  }
+  .navbar-burger {
+    color: white;
+  }
+  .navbar-item,
+  .navbar-link {
+    color: black;
   }
 }
 </style>

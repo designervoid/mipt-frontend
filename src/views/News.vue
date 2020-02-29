@@ -22,7 +22,6 @@
                           <button class="button is-info selected-marks" type="button" slot="trigger">
                               <span v-if="selectedMarks.length > 0">Выбрано меток ({{ selectedMarks.length }})</span>
                               <span v-else>Выбрать метки</span>
-                              <b-icon icon="menu-down"></b-icon>
                           </button>
 
                           <b-dropdown-item v-for="(pieceOfNews, index) in news" :key="index"
@@ -131,6 +130,32 @@ a.dropdown-item.is-active {
 
 @media screen and (max-width: 979px) {
   .request-button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 573px) {
+  .wrapped-header {
+    display: flex;
+    flex-direction: column;
+  }
+  .title.news-header-text.is-4 {
+    margin-bottom: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 444px) {
+  .filter-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .clear-selected-marks {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+  .dropdown.is-mobile-modal,
+  .dropdown-trigger,
+  .selected-marks {
     width: 100%;
   }
 }

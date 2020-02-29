@@ -8,8 +8,12 @@ import Vuelidate from 'vuelidate';
 import VueWait from 'vue-wait';
 
 import Preloader from './components/Preloader'
+import MainHeader from './layouts/MainHeader';
+import MainSidebar from './layouts/MainSidebar';
 
 Vue.component('preloader-test', Preloader);
+Vue.component('main-header', MainHeader);
+Vue.component('main-sidebar', MainSidebar);
 
 import "./main.scss";
 

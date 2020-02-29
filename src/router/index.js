@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Login from "../views/Login.vue";
 import Loader from "../views/Loader.vue";
+import UserProfile from "../views/UserProfile";
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,11 @@ const routes = [
     path: "/loader",
     name: "Loader",
     component: Loader
+  },
+  {
+    path: "/user-profile",
+    name: "UserProfile",
+    component: UserProfile
   }
 ];
 

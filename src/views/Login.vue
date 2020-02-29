@@ -1,19 +1,21 @@
 <template>
 <section>
-  <code>{{ this.$v }}</code> <br>
+  <!-- <code>{{ this.$v }}</code> <br>
   <code>{{ focus }}</code> <br>
   <code>{{ blur }}</code> <br>
-  {{ validateField('email') }}
-  <b-field label="Email" :type="validateField('email')">
-    <b-input v-model.trim="form.email" @input="setField('email', $event)"  @focus="onFocusField('email')" @blur="onBlurField('email')"
->
-    </b-input>
-  </b-field>
+  {{ validateField('email') }} -->
 
-  <b-field label="Password" :type="validateField('password')">
-    <b-input v-model.trim="form.password" @input="setField('password', $event)" @focus="onFocusField('password')" @blur="onBlurField('password')" password-reveal>
-    </b-input>
-  </b-field>
+      <b-field label="Email" :type="validateField('email')">
+        <b-input v-model.trim="form.email" @input="setField('email', $event)" @focus="onFocusField('email')" @blur="onBlurField('email')">
+        </b-input>
+      </b-field>
+
+      <b-field label="Password" :type="validateField('password')">
+        <b-input v-model.trim="form.password" @input="setField('password', $event)" @focus="onFocusField('password')" @blur="onBlurField('password')" password-reveal>
+        </b-input>
+      </b-field>
+      <b-button>Click Me</b-button>
+
 
 </section>
 </template>

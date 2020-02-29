@@ -18,4 +18,6 @@ const router = new VueRouter({
   routes
 });
 
+router.replace({ path: '/login', redirect: '/' })
+
 export default router;

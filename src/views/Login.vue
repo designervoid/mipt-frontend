@@ -1,8 +1,9 @@
 <template>
 
 <section>
-  <!-- <code>{{ this.$v }}</code> <br>
-  <code>{{ focus }}</code> <br>
+  <!-- <code>{{ this.$v }}</code> <br> -->
+  <!-- <code>{{ form }}</code> -->
+  <!-- <code>{{ focus }}</code> <br>
   <code>{{ blur }}</code> <br>
   {{ validateField('email') }} -->
 
@@ -26,7 +27,7 @@
         <b-input class="input-field pass" v-model.trim="form.password" @input="setField('password', $event)" @focus="onFocusField('password')" @blur="onBlurField('password')" password-reveal>
         </b-input>
       </b-field>
-      <b-button class="button1">Click Me</b-button>
+      <b-button class="button1" @click="login();">Login</b-button>
     </div>
     </div>
 

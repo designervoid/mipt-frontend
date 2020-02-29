@@ -15,7 +15,7 @@ const actions = {
       const email = payload.email;
       const password = payload.password;
       console.log(email, password);
-      commit(SET_USER, 'test user', {
+      commit(SET_USER, 'user from api', {
         root: true,
       })
       router.push('/user-profile')

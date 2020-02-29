@@ -121,7 +121,6 @@ section {
   align-items: center;
   background-image: url(../assets/mft.svg);
   height: 100%;
-
 }
 .container1 {
   background-color: #FFFFFF;

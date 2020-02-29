@@ -60,11 +60,11 @@ export default {
     },
     pushToPersonalArea() {
       this.changeSidebarHeader({ headerText: 'Личный кабинет' });
-      this.$router.push('/news');
+      if (this.$route.path !== '/news') this.$router.push('/news')
     },
     pushToContactsProfile() {
       this.changeSidebarHeader({ headerText: 'Профиль' });
-      this.$router.push('/data-profile');
+      if (this.$route.path !== '/data-profile') this.$router.push('/data-profile')
     },
     exit() {
       this.changeSidebarHeader({ headerText: '' });

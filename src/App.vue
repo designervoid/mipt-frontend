@@ -1,12 +1,14 @@
 <template>
-  <div id="app">
+  <div id="app" style="height: 100%; background-color: lightblue;">
     <router-view />
   </div>
 </template>
 
-<script>
-
-</script>
-<style lang="css">
-
+<style media="screen">
+  html {
+    height: 100%;
+  }
+  body {
+    height: 100%;
+  }
 </style>

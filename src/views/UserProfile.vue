@@ -10,18 +10,32 @@
               <div class="columns">
                 <div class="column is-12">
                   <h1 class="title is-2">Заявки</h1>
-                  <p class="is-size-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  <b-button class="request-button" rounded>Создать новую заявку</b-button>
+                  <p class="is-size-5">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                  </p>
+                  <b-button class="request-button" rounded
+                    >Создать новую заявку</b-button
+                  >
                 </div>
               </div>
               <div class="columns">
                 <div class="column is-12">
                   <h1 class="title is-2">Предыдущие заявки</h1>
-                  <BlockRequests v-for="(request, index) in requests" :key="index"
-                  :professionType="request.professionType"
-                  :descriptionOfProblem="request.descriptionOfProblem"
-                  :progressApproval="request.progressApproval"
-                  :descriptionOfApproval="request.descriptionOfApproval"/>
+                  <BlockRequests
+                    v-for="(request, index) in requests"
+                    :key="index"
+                    :professionType="request.professionType"
+                    :descriptionOfProblem="request.descriptionOfProblem"
+                    :progressApproval="request.progressApproval"
+                    :descriptionOfApproval="request.descriptionOfApproval"
+                  />
                 </div>
               </div>
             </div>
@@ -33,7 +47,7 @@
 </template>
 
 <script>
-import BlockRequests from '@/components/BlockRequests.vue';
+import BlockRequests from "@/components/BlockRequests.vue";
 
 export default {
   components: {
@@ -44,37 +58,37 @@ export default {
       windowWidth: window.innerWidth,
       requests: [
         {
-          professionType: 'Сантехник',
-          descriptionOfProblem: 'Протек смеситель',
-          progressApproval: 'Обработка',
-          descriptionOfApproval: 'Заявка на рассмотрении'
+          professionType: "Сантехник",
+          descriptionOfProblem: "Протек смеситель",
+          progressApproval: "Обработка",
+          descriptionOfApproval: "Заявка на рассмотрении"
         },
         {
-          professionType: 'Электрик',
-          descriptionOfProblem: 'Сгорела лампочка',
-          progressApproval: 'Подтверждено',
-          descriptionOfApproval: 'Ждите мастера 2 марта, 14:00-15:00'
+          professionType: "Электрик",
+          descriptionOfProblem: "Сгорела лампочка",
+          progressApproval: "Подтверждено",
+          descriptionOfApproval: "Ждите мастера 2 марта, 14:00-15:00"
         },
         {
-          professionType: 'Плотник',
-          descriptionOfProblem: 'Сломалась ручка двери',
-          progressApproval: 'Выполнено',
-          descriptionOfApproval: 'Подать жалобу'
+          professionType: "Плотник",
+          descriptionOfProblem: "Сломалась ручка двери",
+          progressApproval: "Выполнено",
+          descriptionOfApproval: "Подать жалобу"
         }
       ]
-    }
+    };
   },
   computed: {
     isMobile() {
-      return this.windowWidth < 979
+      return this.windowWidth < 979;
     }
   },
   mounted() {
     window.onresize = () => {
-      this.windowWidth = window.innerWidth
-    }
+      this.windowWidth = window.innerWidth;
+    };
   }
-}
+};
 </script>
 
 <style lang="css" scoped>
@@ -89,7 +103,7 @@ export default {
 
 @media screen and (max-width: 979px) {
   .request-button {
-    width: 100%
+    width: 100%;
   }
 }
 </style>

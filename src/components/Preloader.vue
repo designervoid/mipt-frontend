@@ -5,27 +5,27 @@
 </template>
 
 <script>
-import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
+import PulseLoader from "vue-spinner/src/PulseLoader.vue";
 export default {
-  name: 'Preloader',
+  name: "Preloader",
   components: {
-    PulseLoader,
+    PulseLoader
   },
   props: {
     loading: {
       type: Boolean,
-      default: true,
+      default: true
     },
     size: {
       type: String,
-      default: '100px',
-    },
+      default: "100px"
+    }
   },
   data() {
     return {
-      color: '#007bff',
+      color: "#007bff"
     };
-  },
+  }
 };
 </script>
 

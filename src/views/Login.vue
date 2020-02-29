@@ -1,13 +1,17 @@
 <template>
 <section>
-  {{ this.$v }}
-  <b-field label="Email" type="is-danger">
-    <b-input  v-model.trim="form.email" @input="setField(event, 'email')">
+  <code>{{ this.$v }}</code> <br>
+  <code>{{ focus }}</code> <br>
+  <code>{{ blur }}</code> <br>
+  {{ validateField('email') }}
+  <b-field label="Email" :type="validateField('email')">
+    <b-input v-model.trim="form.email" @input="setField('email', $event)"  @focus="onFocusField('email')" @blur="onBlurField('email')"
+>
     </b-input>
   </b-field>
 
-  <b-field label="Password" type="is-success">
-    <b-input v-model.trim="form.password" @input="setField(event, 'password')" password-reveal>
+  <b-field label="Password" :type="validateField('password')">
+    <b-input v-model.trim="form.password" @input="setField('password', $event)" @focus="onFocusField('password')" @blur="onBlurField('password')" password-reveal>
     </b-input>
   </b-field>
 
@@ -17,7 +21,8 @@
 <script>
 import {
   required,
-  minLength
+  email,
+  minLength,
 } from 'vuelidate/lib/validators'
 
 export default {
@@ -26,6 +31,14 @@ export default {
       form: {
         email: '',
         password: ''
+      },
+      focus: {
+        email: false,
+        password: false
+      },
+      blur: {
+        email: null,
+        password: null
       }
     }
   },
@@ -33,6 +46,7 @@ export default {
     form: {
       email: {
         required,
+        email
       },
       password: {
         required,
@@ -40,11 +54,34 @@ export default {
       }
     }
   },
+  computed: {
+    isValidEmail() {
+      return this.$v.form.email.$invalid
+    },
+    isValidPassword() {
+      return this.$v.form.password.$invalid
+    }
+  },
   methods: {
     setField(key, value) {
       this.form[key] = value;
       this.$v.form[key].$touch()
     },
+    onFocusField(key) {
+      this.focus[key] = true;
+      this.blur[key] = null;
+    },
+    onBlurField(key) {
+      this.focus[key] = false;
+      this.blur[key] = true;
+    },
+    validateField(key) {
+      if (this.blur[key] === null) {
+        return null;
+      } else {
+        return this.$v.form[key].$invalid ? 'is-danger' : 'is-success';
+      }
+    }
   }
 }
 </script>

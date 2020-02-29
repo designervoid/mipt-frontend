@@ -1,0 +1,121 @@
+<template lang="html">
+  <div>
+    <main-header></main-header>
+    <div class="container">
+      <div v-bind:class="!isMobile ? 'columns' : 'columns-mobile'">
+        <main-sidebar v-if="!isMobile"></main-sidebar>
+        <div class="column" v-bind:class="isMobile ? 'is-12' : 'is-9'">
+          <div class="container">
+            <div class="wrapped-container">
+              <div class="columns">
+                <div class="column is-12">
+                  <div class="wrapped-header">
+                    <h1 class="title is-2 news-header-text">Новости</h1>
+                            <b-dropdown
+                                v-model="selectedOptions"
+                                multiple
+                                aria-role="list">
+                                <button class="button is-info" type="button" slot="trigger">
+                                    <span v-if="selectedOptions.length > 0">Выбрано меток ({{ selectedOptions.length }})</span>
+                                    <span v-else>Выбрать метки</span>
+                                    <b-icon icon="menu-down"></b-icon>
+                                </button>
+
+                                <b-dropdown-item v-for="(pieceOfNews, index) in news" :key="index"
+                                :value="pieceOfNews.mark.text"
+                                aria-role="listitem"
+                                >
+                                    <span>{{ pieceOfNews.mark.text }}</span>
+                                </b-dropdown-item>
+                            </b-dropdown>
+                  </div>
+                  <BlockNews v-for="(pieceOfNews, index) in news" :key="index"
+                  :header="pieceOfNews.header"
+                  :shortDescription="pieceOfNews.shortDescription"
+                  :text="pieceOfNews.text"
+                  :mark="pieceOfNews.mark"
+                  :selectedMarks="selectedOptions"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import BlockNews from "@/components/BlockNews.vue";
+
+export default {
+  components: {
+    BlockNews
+  },
+  data() {
+    return {
+      windowWidth: window.innerWidth,
+      news: [
+        {
+          header: 'Профилактика короновируса',
+          shortDescription: 'В связи с эпидемией короновируса просьба студентам прочитать следующую памятку.',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+          mark: {
+            text: 'Общее',
+            color: 'black'
+          }
+        },
+        {
+          header: 'Профилактика короновируса',
+          shortDescription: 'В связи с эпидемией короновируса просьба студентам прочитать следующую памятку.',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+          mark: {
+            text: 'Зюзино',
+            color: 'orange'
+          }
+        }
+      ],
+      selectedOptions: []
+    };
+  },
+  computed: {
+    isMobile() {
+      return this.windowWidth < 979;
+    }
+  },
+  mounted() {
+    window.onresize = () => {
+      this.windowWidth = window.innerWidth;
+    };
+  }
+};
+</script>
+
+<style lang="css" scoped>
+.wrapped-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.news-header-text {
+  margin-bottom: 0 !important;
+}
+.wrapped-container {
+  padding: 2rem;
+}
+.request-button {
+  margin-top: 2rem;
+  width: 409px;
+  height: 64px;
+}
+a.dropdown-item.is-active {
+  background-color: #209cee !important;
+}
+
+@media screen and (max-width: 979px) {
+  .request-button {
+    width: 100%;
+  }
+}
+</style>

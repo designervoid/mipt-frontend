@@ -17,7 +17,13 @@
       </p>
       <ul class="menu-list">
         <li><a>Личный кабинет</a></li>
-        <li><a class="is-active">Заявки</a></li>
+        <li>
+          <router-link to="/news">Новости</router-link>
+        </li>
+        <li>
+          <router-link to="/requests">Заявки</router-link>
+        </li>
+        <!-- <li><a class="is-active">Заявки</a></li> -->
         <li><a>Обратная связь</a></li>
       </ul>
     </aside>

@@ -5,16 +5,28 @@
   <code>{{ blur }}</code> <br>
   {{ validateField('email') }} -->
 
-      <b-field label="Email" :type="validateField('email')">
-        <b-input v-model.trim="form.email" @input="setField('email', $event)" @focus="onFocusField('email')" @blur="onBlurField('email')">
+  <div class="container1">
+    <div class="auth-header">
+      <img src="@/assets/mipt_rus_inv.png" alt="Logo">
+    </div>
+    <div class="menu">
+
+
+      <h1>Авторизация</h1>
+      <p>Привет всем заходящим пришельцам <br>
+         С вами наш жилищно-бытовой сервис</p>
+      <b-field label="" :type="validateField('email')">
+        <b-input class="input-field e-mail" v-model.trim="form.email" @input="setField('email', $event)" @focus="onFocusField('email')" @blur="onBlurField('email')">
         </b-input>
       </b-field>
 
-      <b-field label="Password" :type="validateField('password')">
-        <b-input v-model.trim="form.password" @input="setField('password', $event)" @focus="onFocusField('password')" @blur="onBlurField('password')" password-reveal>
+      <b-field label="" :type="validateField('password')">
+        <b-input class="input-field pass" v-model.trim="form.password" @input="setField('password', $event)" @focus="onFocusField('password')" @blur="onBlurField('password')" password-reveal>
         </b-input>
       </b-field>
-      <b-button>Click Me</b-button>
+      <b-button class="button1">Click Me</b-button>
+    </div>
+    </div>
 
 
 </section>
@@ -89,9 +101,95 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.control.has-icons-left .icon,
-.control.has-icons-right .icon {
-  pointer-events: auto !important;
-}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../assets/mft.svg);
+  height: 100%;
 
+}
+.container1 {
+  background-color: #FFFFFF;
+  width: 426px;
+  height: 432px;
+  display: flex;
+  border-radius: 10px;
+  flex-direction: column;
+  /* justify-content: space-around; */
+
+}
+.auth-header {
+  background-color: #0069B4;
+  width: 426px;
+  height: 72px;
+  text-align: center;
+  padding: 10px 0 0 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+  margin-top: 40px;
+
+}
+p {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+  margin-top: 38px;
+}
+.input-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 46px;
+  width: 311px;
+  padding-left: 106px;
+}
+.e-mail {
+  margin-top: 17px;
+}
+.pass {
+
+}
+.button1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #0069B4;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.125);
+  border-radius: 5px;
+  width: 311px;
+  height: 46px;
+  color: #FFFFFF;
+  margin-left: 56px;
+
+}
+img {
+  width: 128.13px;
+  height: 56px;
+}
 </style>

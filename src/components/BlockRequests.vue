@@ -34,10 +34,10 @@
           {{ descriptionOfApproval }}
         </button>
         <span v-if="progressApproval === 'Обработка'">{{
-          progressApproval
+        descriptionOfApproval
         }}</span>
         <span v-if="progressApproval === 'Подтверждено'">{{
-          progressApproval
+          descriptionOfApproval
         }}</span>
       </div>
     </div>

@@ -10,7 +10,7 @@
               <div class="columns">
                 <div class="column is-12">
                   <div class="wrapped-header">
-                    <h1 class="title is-2 news-header-text">Новости</h1>
+                    <h1 class="title news-header-text" v-bind:class="!isMobile ? 'is-2' : 'is-4'">Новости</h1>
                     <div class="filter-buttons">
                       <b-button v-if="selectedMarks.length > 0"
                         type="is-light clear-selected-marks"

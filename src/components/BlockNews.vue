@@ -49,6 +49,11 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      showMoreText: false,
+    }
+  },
   methods: {
     selectMark(markText) {
       if (!this.selectedMarks.includes(markText)) {

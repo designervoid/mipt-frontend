@@ -1,7 +1,7 @@
 <template lang="html">
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <router-link to="/user-profile" class="navbar-item">
+      <router-link to="/user-profile" class="navbar-item navbar-logo">
         <img src="@/assets/mipt_rus_inv.png" alt="" />
       </router-link>
 
@@ -29,34 +29,16 @@
       <div class="navbar-start"></div>
 
       <div class="navbar-end">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            More
-          </a>
-
-          <div class="navbar-dropdown">
-            <a class="navbar-item navbar-dropdown-item">
-              About
-            </a>
-            <a class="navbar-item navbar-dropdown-item">
-              Jobs
-            </a>
-            <a class="navbar-item navbar-dropdown-item">
-              Contact
-            </a>
-            <hr class="navbar-divider" />
-            <a class="navbar-item navbar-dropdown-item">
-              Report an issue
-            </a>
-          </div>
-        </div>
-
-        <a class="navbar-item">
-          Home
+        <a class="navbar-item" @click="pushToPersonalArea();">
+          Личный кабинет
         </a>
 
-        <a class="navbar-item">
-          Documentation
+        <a class="navbar-item" @click="pushToContactsProfile();">
+          Профиль
+        </a>
+
+        <a class="navbar-item" @click="exit();">
+          Выход
         </a>
       </div>
     </div>
@@ -64,6 +46,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   data() {
     return {
@@ -71,8 +54,21 @@ export default {
     };
   },
   methods: {
+    ...mapActions('sidebar', ['changeSidebarHeader']),
     toggleMenu() {
       this.isToggledMenu = !this.isToggledMenu;
+    },
+    pushToPersonalArea() {
+      this.changeSidebarHeader({ headerText: 'Личный кабинет' });
+      this.$router.push('/news');
+    },
+    pushToContactsProfile() {
+      this.changeSidebarHeader({ headerText: 'Профиль' });
+      // this.$router.push('/contacts-profile');
+    },
+    exit() {
+      this.changeSidebarHeader({ headerText: '' });
+      this.$router.push('/login');
     }
   }
 };
@@ -83,12 +79,12 @@ nav {
   background-color: #0069b4;
   height: 80px;
 }
+.navbar-logo {
+  margin-left: 3.5rem;
+}
 .navbar-item,
 .navbar-link {
-  color: black;
-}
-.navbar-dropdown-item {
-  color: black;
+  color: #ffffff;
 }
 
 @media screen and (max-width: 979px) {

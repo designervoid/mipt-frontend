@@ -17,7 +17,11 @@
               <div class="columns">
                 <div class="column is-12">
                   <h1 class="title is-2">Предыдущие заявки</h1>
-
+                  <BlockRequests v-for="(request, index) in requests" :key="index"
+                  :professionType="request.professionType"
+                  :descriptionOfProblem="request.descriptionOfProblem"
+                  :progressApproval="request.progressApproval"
+                  :descriptionOfApproval="request.descriptionOfApproval"/>
                 </div>
               </div>
             </div>
@@ -29,10 +33,35 @@
 </template>
 
 <script>
+import BlockRequests from '@/components/BlockRequests.vue';
+
 export default {
+  components: {
+    BlockRequests
+  },
   data() {
     return {
-      windowWidth: window.innerWidth
+      windowWidth: window.innerWidth,
+      requests: [
+        {
+          professionType: 'Сантехник',
+          descriptionOfProblem: 'Протек смеситель',
+          progressApproval: 'Обработка',
+          descriptionOfApproval: 'Заявка на рассмотрении'
+        },
+        {
+          professionType: 'Электрик',
+          descriptionOfProblem: 'Сгорела лампочка',
+          progressApproval: 'Подтверждено',
+          descriptionOfApproval: 'Ждите мастера 2 марта, 14:00-15:00'
+        },
+        {
+          professionType: 'Плотник',
+          descriptionOfProblem: 'Сломалась ручка двери',
+          progressApproval: 'Выполнено',
+          descriptionOfApproval: 'Подать жалобу'
+        }
+      ]
     }
   },
   computed: {

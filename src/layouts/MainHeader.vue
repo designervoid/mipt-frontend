@@ -73,7 +73,7 @@ nav {
   height: 80px;
 }
 .navbar-item, .navbar-link {
-  color: #FFFFFF;
+  color: black;
 }
 .navbar-dropdown-item {
   color: black;

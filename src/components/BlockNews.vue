@@ -87,6 +87,10 @@ export default {
   border-radius: 50px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.125);
 }
+.wrapped-right-block:hover {
+  background-color: #EFEFEF !important;
+  color: black;
+}
 .wrapped-left-description {
   white-space: pre-wrap;
   word-wrap: break-word;

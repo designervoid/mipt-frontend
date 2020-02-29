@@ -33,7 +33,14 @@
               <div class="columns user-requisites-columns"
               v-for="(requisite, index) in requisites" :key="index">
                 <div class="column is-12 user-requisites-column">
-                    <b-field>
+                  <b-datepicker
+                              :placeholder="requisite.value"
+                              v-model="dates"
+                              :disabled="!isEdit"
+                              range
+                              v-if="requisite.key === 'lengthOfStay'">
+                  </b-datepicker>
+                    <b-field v-else>
                         <b-input :placeholder="requisite.text"
                         :value="requisite.value"
                         :disabled="!isEdit"
@@ -111,7 +118,8 @@ export default {
           text: 'Тариф',
           value: '4 руб/день'
         }
-      ]
+      ],
+      dates: []
     };
   },
   validations: {

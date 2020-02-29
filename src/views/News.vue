@@ -142,9 +142,6 @@ a.dropdown-item.is-active {
   .title.news-header-text.is-4 {
     margin-bottom: 1rem !important;
   }
-}
-
-@media screen and (max-width: 444px) {
   .filter-buttons {
     flex-direction: column;
     width: 100%;
@@ -155,8 +152,9 @@ a.dropdown-item.is-active {
   }
   .dropdown.is-mobile-modal,
   .dropdown-trigger,
-  .selected-marks {
-    width: 100%;
+  button.selected-marks {
+    width: 100% !important;
   }
 }
+
 </style>

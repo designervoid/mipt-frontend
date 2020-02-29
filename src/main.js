@@ -1,10 +1,15 @@
 import Vue from "vue";
 import App from "./App.vue";
 import "./registerServiceWorker";
-import router from "./router";
-import store from "./store";
+import router from "@/router";
+import store from "@/store";
 import Buefy from "buefy";
-import Vuelidate from 'vuelidate'
+import Vuelidate from 'vuelidate';
+import VueWait from 'vue-wait';
+
+import Preloader from './components/Preloader'
+
+Vue.component('preloader-test', Preloader);
 
 import "./main.scss";
 
@@ -20,10 +25,15 @@ Vue.use(Buefy, {
   defaultIconComponent: 'vue-fontawesome',
   defaultIconPack: 'fas',
 });
-Vue.use(Vuelidate)
+Vue.use(Vuelidate);
+Vue.use(VueWait);
+
 
 new Vue({
   router,
   store,
+  wait: new VueWait({
+    useVuex: true
+  }),
   render: h => h(App)
 }).$mount("#app");

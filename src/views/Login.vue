@@ -1,10 +1,9 @@
 <template>
-<section>
-  <!-- <code>{{ this.$v }}</code> <br>
-  <code>{{ focus }}</code> <br>
-  <code>{{ blur }}</code> <br>
-  {{ validateField('email') }} -->
-
+  <v-wait for="my list is to load">
+    <template slot="waiting">
+      <preloader-test></preloader-test>
+    </template>
+    <section>
       <b-field label="Email" :type="validateField('email')">
         <b-input v-model.trim="form.email" @input="setField('email', $event)" @focus="onFocusField('email')" @blur="onBlurField('email')">
         </b-input>
@@ -14,18 +13,21 @@
         <b-input v-model.trim="form.password" @input="setField('password', $event)" @focus="onFocusField('password')" @blur="onBlurField('password')" password-reveal>
         </b-input>
       </b-field>
-      <b-button>Click Me</b-button>
-
-
-</section>
+      <b-button @click="login();" :disabled="isValidEmail || isValidPassword">Login</b-button>
+    </section>
+  </v-wait>
 </template>
 
 <script>
+
 import {
   required,
   email,
   minLength,
 } from 'vuelidate/lib/validators'
+import {
+  mapActions
+} from 'vuex';
 
 export default {
   data() {
@@ -65,6 +67,12 @@ export default {
     }
   },
   methods: {
+    ...mapActions('auth', ['getToken']),
+    login() {
+      const email = this.form.email;
+      const password = this.form.password;
+      this.getToken({ email, password });
+    },
     setField(key, value) {
       this.form[key] = value;
       this.$v.form[key].$touch()
@@ -89,9 +97,5 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.control.has-icons-left .icon,
-.control.has-icons-right .icon {
-  pointer-events: auto !important;
-}
 
 </style>

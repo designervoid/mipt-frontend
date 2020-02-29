@@ -29,17 +29,17 @@
       <div class="navbar-start"></div>
 
       <div class="navbar-end">
-        <router-link class="navbar-item" to="/news" @click="pushToPersonalArea();">
+        <a class="navbar-item" @click="pushToPersonalArea();">
           Личный кабинет
-        </router-link>
+        </a>
 
-        <router-link class="navbar-item" to="/data-profile" @click="pushToContactsProfile();">
+        <a class="navbar-item" @click="pushToContactsProfile();">
           Профиль
-        </router-link>
+        </a>
 
-        <router-link class="navbar-item" to="/login" @click="exit();">
+        <a class="navbar-item" @click="exit();">
           Выход
-        </router-link>
+        </a>
       </div>
     </div>
   </nav>
@@ -60,12 +60,15 @@ export default {
     },
     pushToPersonalArea() {
       this.changeSidebarHeader({ headerText: 'Личный кабинет' });
+      this.$router.push('/news');
     },
     pushToContactsProfile() {
       this.changeSidebarHeader({ headerText: 'Профиль' });
+      this.$router.push('/data-profile');
     },
     exit() {
       this.changeSidebarHeader({ headerText: '' });
+      this.$router.push('/login');
     }
   }
 };

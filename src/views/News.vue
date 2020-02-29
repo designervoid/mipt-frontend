@@ -11,30 +11,35 @@
                 <div class="column is-12">
                   <div class="wrapped-header">
                     <h1 class="title is-2 news-header-text">Новости</h1>
-                            <b-dropdown
-                                v-model="selectedOptions"
-                                multiple
-                                aria-role="list">
-                                <button class="button is-info" type="button" slot="trigger">
-                                    <span v-if="selectedOptions.length > 0">Выбрано меток ({{ selectedOptions.length }})</span>
-                                    <span v-else>Выбрать метки</span>
-                                    <b-icon icon="menu-down"></b-icon>
-                                </button>
+                    <div class="filter-buttons">
+                      <b-button v-if="selectedMarks.length > 0"
+                        type="is-light clear-selected-marks"
+                      @click="clearMarks();">Очистить метки</b-button>
+                      <b-dropdown
+                          v-model="selectedMarks"
+                          multiple
+                          aria-role="list">
+                          <button class="button is-info selected-marks" type="button" slot="trigger">
+                              <span v-if="selectedMarks.length > 0">Выбрано меток ({{ selectedMarks.length }})</span>
+                              <span v-else>Выбрать метки</span>
+                              <b-icon icon="menu-down"></b-icon>
+                          </button>
 
-                                <b-dropdown-item v-for="(pieceOfNews, index) in news" :key="index"
-                                :value="pieceOfNews.mark.text"
-                                aria-role="listitem"
-                                >
-                                    <span>{{ pieceOfNews.mark.text }}</span>
-                                </b-dropdown-item>
-                            </b-dropdown>
+                          <b-dropdown-item v-for="(pieceOfNews, index) in news" :key="index"
+                          :value="pieceOfNews.mark.text"
+                          aria-role="listitem"
+                          >
+                              <span>{{ pieceOfNews.mark.text }}</span>
+                          </b-dropdown-item>
+                      </b-dropdown>
+                    </div>
                   </div>
                   <BlockNews v-for="(pieceOfNews, index) in news" :key="index"
                   :header="pieceOfNews.header"
                   :shortDescription="pieceOfNews.shortDescription"
                   :text="pieceOfNews.text"
                   :mark="pieceOfNews.mark"
-                  :selectedMarks="selectedOptions"/>
+                  :selectedMarks="selectedMarks"/>
                 </div>
               </div>
             </div>
@@ -75,7 +80,7 @@ export default {
           }
         }
       ],
-      selectedOptions: []
+      selectedMarks: []
     };
   },
   computed: {
@@ -87,6 +92,11 @@ export default {
     window.onresize = () => {
       this.windowWidth = window.innerWidth;
     };
+  },
+  methods: {
+    clearMarks() {
+      this.selectedMarks = [];
+    }
   }
 };
 </script>
@@ -111,6 +121,12 @@ export default {
 }
 a.dropdown-item.is-active {
   background-color: #209cee !important;
+}
+.clear-selected-marks {
+  margin-right: 0.5rem;
+}
+.selected-marks {
+  min-width: 200px;
 }
 
 @media screen and (max-width: 979px) {

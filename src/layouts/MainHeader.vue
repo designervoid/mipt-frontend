@@ -37,7 +37,7 @@
           Профиль
         </a>
 
-        <a class="navbar-item">
+        <a class="navbar-item" @click="exit();">
           Выход
         </a>
       </div>
@@ -66,6 +66,10 @@ export default {
       this.changeSidebarHeader({ headerText: 'Профиль' });
       this.$router.push('/contacts-profile');
     },
+    exit() {
+      this.changeSidebarHeader({ headerText: '' });
+      this.$router.push('/login');
+    }
   }
 };
 </script>

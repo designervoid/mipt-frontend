@@ -54,6 +54,8 @@ const actions = {
           text: 'Полезная информация'
         },
       ])
+    } else if (headerText === 'Выход') {
+      commit(SET_SIDEBAR_NAVIGATION, [])
     }
   }
 };

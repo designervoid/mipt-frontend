@@ -14,7 +14,7 @@ const actions = {
       commit(SET_USER, "user from api", {
         root: true
       });
-      router.push("/user-profile");
+      router.push("/news");
     } catch (error) {
       console.error(error);
     }

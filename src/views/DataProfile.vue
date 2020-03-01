@@ -49,6 +49,7 @@
                 :key="index"
               >
                 <div class="column is-12 user-requisites-column">
+                  <label for="">{{ requisite.text }}</label>
                   <b-datepicker
                     :placeholder="requisite.value"
                     v-model="dates"

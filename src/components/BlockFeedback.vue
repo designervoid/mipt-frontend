@@ -4,7 +4,7 @@
       <div class="wrapped-left-heading has-text-grey-light">
         {{ date }}
       </div>
-      <div class="wrapped-left-description title is-5 has-text-link">
+      <div class="wrapped-left-description title is-5 has-text-black">
         {{ question }}
       </div>
       <div class="wrapped-left-answer" v-if="answer.boolean === true">

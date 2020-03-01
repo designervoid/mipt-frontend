@@ -29,7 +29,7 @@
                     deserunt mollit anim id est laborum.
                   </p>
                   <b-button
-                    class="request-button"
+                    class="request-button is-link"
                     rounded
                     @click="changeStateOfNewRequest()"
                     >Создать новую заявку</b-button

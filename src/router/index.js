@@ -6,6 +6,7 @@ import News from "../views/News.vue";
 import Orders from "../views/Orders.vue";
 import Feedback from "../views/Feedback.vue";
 import DataProfile from "../views/DataProfile.vue";
+import ContactsProfile from "../views/ContactsProfile.vue";
 
 Vue.use(VueRouter);
 
@@ -39,6 +40,11 @@ const routes = [
     path: "/data-profile",
     name: "DataProfile",
     component: DataProfile
+  },
+  {
+    path: "/contacts-profile",
+    name: "ContactsProfile",
+    component: ContactsProfile
   }
 ];
 

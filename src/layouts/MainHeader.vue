@@ -84,6 +84,7 @@ nav {
 }
 .navbar-item,
 .navbar-link {
+  text-align:center;
   color: #ffffff;
 }
 

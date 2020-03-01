@@ -1,8 +1,8 @@
 <template>
-  <sidebar-menu :menu="sidebarNavigation" ref="sidebar_menu" />
+  <sidebar-menu :menu="sidebarNavigation" @toggle-collapse="onToggleCollapse" width="200px" widthCollapsed="50px" :collapsed="true" ref="sidebar_menu" />
 </template>
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
   export default {
     data() {
       return {
@@ -11,8 +11,11 @@ import { mapState } from 'vuex';
     computed: {
       ...mapState('sidebar', ['sidebarHeader', 'sidebarNavigation'])
     },
-    mounted() {
-      // this.$refs.sidebar_menu.isCollapsed = true;
+    methods: {
+      ...mapActions('sidebar', ['changeStateOfPadding']),
+      onToggleCollapse(collapsed) {
+        this.changeStateOfPadding({ isCollapsed: collapsed })
+      }
     }
   }
 </script>

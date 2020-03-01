@@ -1,4 +1,4 @@
-import { SET_SIDEBAR_HEADER, SET_SIDEBAR_NAVIGATION } from "@/store/mutation-types";
+import { SET_SIDEBAR_HEADER, SET_SIDEBAR_NAVIGATION, SET_PADDING_MAIN_BLOCK } from "@/store/mutation-types";
 
 const state = {
   sidebarHeader: 'Личный кабинет',
@@ -23,7 +23,8 @@ const state = {
       title: 'Обратная связь',
       icon: 'fa fa-user'
     }
-  ]
+  ],
+  paddingMainBlock: '50px'
 };
 
 const getters = {};
@@ -82,7 +83,15 @@ const actions = {
     } else if (headerText === 'Выход') {
       commit(SET_SIDEBAR_NAVIGATION, [])
     }
+  },
+  changeStateOfPadding({commit}, payload) {
+    if (payload.isCollapsed) {
+      commit(SET_PADDING_MAIN_BLOCK, '50px')
+    } else {
+      commit(SET_PADDING_MAIN_BLOCK, '200px')
+    }
   }
+
 };
 
 const mutations = {
@@ -91,6 +100,9 @@ const mutations = {
   },
   [SET_SIDEBAR_NAVIGATION](state, payload) {
     state.sidebarNavigation = payload;
+  },
+  [SET_PADDING_MAIN_BLOCK](state, payload) {
+    state.paddingMainBlock = payload;
   }
 };
 

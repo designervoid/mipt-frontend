@@ -4,7 +4,7 @@
     <div class="container">
       <div class="columns">
         <main-sidebar></main-sidebar>
-        <div class="column is-12">
+        <div class="column is-12" v-bind:style="{ 'padding-left': paddingMainBlock }">
           <div class="container">
             <div class="wrapped-container">
               <div class="columns">
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import BlockRequests from "@/components/BlockRequests.vue";
 
 export default {
@@ -79,6 +80,7 @@ export default {
     };
   },
   computed: {
+    ...mapState('sidebar', ['paddingMainBlock']),
     isMobile() {
       return this.windowWidth < 979;
     }

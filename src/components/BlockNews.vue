@@ -2,13 +2,15 @@
   <transition name="fade">
     <div class="block" v-if="selectedMarks.includes(mark_text) || selectedMarks.length === 0">
       <div class="wrapped-left-block">
+        <div class="wrapped-left-heading has-text-grey-light">
+          {{ date_published }}
+        </div>
         <div class="wrapped-left-heading title is-5 has-text-link">
           {{ header }}
         </div>
         <div class="wrapped-left-description">
           <div class="shortDescription">{{ short_description }}</div>
           <div class="text">{{ text }}</div>
-          <small class="date">{{ date_published }}</small>
         </div>
       </div>
       <div class="wrapped-right-block" v-bind:style="{ 'background-color': mark_color }" @click="selectMark(mark_text)">

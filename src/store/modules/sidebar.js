@@ -14,7 +14,7 @@ const state = {
       icon: 'fa-caret-down'
     },
     {
-      href: '/requests',
+      href: '/orders',
       title: 'Заявки',
       icon: 'fa fa-user'
     },
@@ -46,7 +46,7 @@ const actions = {
           icon: 'fa fa-user'
         },
         {
-          href: '/requests',
+          href: '/orders',
           title: 'Заявки',
           icon: 'fa fa-user'
         },

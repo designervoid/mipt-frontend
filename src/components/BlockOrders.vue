@@ -1,6 +1,9 @@
 <template lang="html">
   <div class="block">
     <div class="wrapped-left-block">
+      <div class="wrapped-left-heading has-text-grey-light">
+        {{ date }}
+      </div>
       <div class="wrapped-left-heading title is-5 has-text-link">
         {{ professionType }}
       </div>
@@ -48,14 +51,14 @@
                       </div>
                       <div class="card-content">
                           <div class="content">
-                            <b-field label="Опишите, что вас не устроило">
-                                        <b-input maxlength="200" type="textarea"></b-input>
+                            <b-field>
+                                        <b-input maxlength="200" type="textarea" placeholder="Опишите, что вас не устроило"></b-input>
                             </b-field>
                           </div>
                       </div>
                       <div class="card-footer">
-                        <b-button type="is-link" @click="closeModal()" inverted>Отменить</b-button>
-                        <b-button type="is-link">Отправить</b-button>
+                        <b-button type="is-link close-button-footer" @click="closeModal()" inverted rounded>Отменить</b-button>
+                        <b-button type="is-link" rounded>Отправить</b-button>
                       </div>
                   </div>
               </b-modal>
@@ -94,6 +97,12 @@ export default {
       default () {
         return "";
       }
+    },
+    date: {
+      type: String,
+      default () {
+        return "";
+      }
     }
   },
   methods: {
@@ -104,7 +113,7 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 .block {
   display: flex;
   justify-content: space-between;
@@ -123,5 +132,18 @@ export default {
 .wrapped-right-description {
   white-space: pre-wrap;
   word-wrap: break-word;
+}
+
+.modal-content {
+  border-radius: 10px;
+}
+.card-header {
+  padding: 1rem;
+  background-color: #3273dc !important;
+  color: #ffffff;
+}
+.card-footer {
+  padding: 1rem;
+  justify-content: flex-end;
 }
 </style>

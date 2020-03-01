@@ -1,10 +1,5 @@
 <template>
   <section>
-    <!-- <code>{{ this.$v }}</code> <br> -->
-    <!-- <code>{{ form }}</code> -->
-    <!-- <code>{{ focus }}</code> <br>
-  <code>{{ blur }}</code> <br>
-  {{ validateField('email') }} -->
   <div class="container1">
     <div class="menu-header">
       <img src="@/assets/mipt_rus_inv.png" alt="Logo">

@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import Login from "../views/Login.vue";
 import Loader from "../views/Loader.vue";
 import News from "../views/News.vue";
-import Requests from "../views/Requests.vue";
+import Orders from "../views/Orders.vue";
 import Feedback from "../views/Feedback.vue";
 import DataProfile from "../views/DataProfile.vue";
 
@@ -26,9 +26,9 @@ const routes = [
     component: News
   },
   {
-    path: "/requests",
-    name: "Requests",
-    component: Requests
+    path: "/orders",
+    name: "Orders",
+    component: Orders
   },
   {
     path: "/feedback",

@@ -57,7 +57,10 @@
                           </b-field>
                             <div class="category-buttons">
                               <b-button type="is-link" inverted @click="changeStateOfNewRequest();">Отмена</b-button>
-                              <b-button type="is-link">Отправить</b-button>
+                              <b-button type="is-link" @click="sendOrder({
+                                category: selectedCategory,
+                                description: 'test'
+                                })">Отправить</b-button>
                             </div>
                 </div>
               </div>
@@ -65,13 +68,14 @@
               <div class="columns">
                 <div class="column is-12">
                   <h1 class="title" v-bind:class="!isMobile ? 'is-2' : 'is-4'">Предыдущие заявки</h1>
-                  <BlockRequests
-                    v-for="(request, index) in requests"
+                  <BlockOrders
+                    v-for="(order, index) in orders"
                     :key="index"
-                    :professionType="request.professionType"
-                    :descriptionOfProblem="request.descriptionOfProblem"
-                    :progressApproval="request.progressApproval"
-                    :descriptionOfApproval="request.descriptionOfApproval"
+                    :professionType="order.professionType"
+                    :descriptionOfProblem="order.descriptionOfProblem"
+                    :progressApproval="order.progressApproval"
+                    :descriptionOfApproval="order.descriptionOfApproval"
+                    :date="order.date"
                   />
                 </div>
               </div>
@@ -85,45 +89,25 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import BlockRequests from "@/components/BlockRequests.vue";
+import BlockOrders from "@/components/BlockOrders.vue";
 
 export default {
   components: {
-    BlockRequests
+    BlockOrders
   },
   data() {
     return {
       windowWidth: window.innerWidth,
       createNewRequest: false,
-      categories: [
-        'Сантехник',
-        'Электрик',
-        'Плотник'
-      ],
       selectedCategory: '',
-      requests: [{
-          professionType: "Сантехник",
-          descriptionOfProblem: "Протек смеситель",
-          progressApproval: "Обработка",
-          descriptionOfApproval: "Заявка на рассмотрении"
-        },
-        {
-          professionType: "Электрик",
-          descriptionOfProblem: "Сгорела лампочка",
-          progressApproval: "Подтверждено",
-          descriptionOfApproval: "Ждите мастера 2 марта, 14:00-15:00"
-        },
-        {
-          professionType: "Плотник",
-          descriptionOfProblem: "Сломалась ручка двери",
-          progressApproval: "Выполнено",
-          descriptionOfApproval: "Подать жалобу"
-        }
-      ]
+      // form: {
+      //   description
+      // }
     };
   },
   computed: {
     ...mapState('sidebar', ['paddingMainBlock']),
+    ...mapState('orders', ['categories', 'orders']),
     isMobile() {
       return this.windowWidth < 979;
     }
@@ -138,6 +122,7 @@ export default {
   },
   methods: {
     ...mapActions('sidebar', ['fixStateOfPadding']),
+    ...mapActions('orders', ['sendOrder']),
     changeStateOfNewRequest() {
       this.createNewRequest = !this.createNewRequest;
     }
@@ -158,6 +143,10 @@ export default {
 .dropdown, .dropdown-trigger, .selectedCategory,
 .dropdown-menu, .dropdown-content {
   width: 100%;
+}
+.category-buttons {
+  display: flex;
+  justify-content: flex-end;
 }
 
 @media screen and (max-width: 979px) {

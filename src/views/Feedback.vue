@@ -17,10 +17,13 @@
                         <b-input placeholder="Заголовок"></b-input>
                   </b-field>
                   <b-field>
-                      <b-input placeholder="Задайте свой вопрос" type="textarea"></b-input>
+                      <b-input placeholder="Задайте свой вопрос" type="textarea" v-model="question"></b-input>
                   </b-field>
                   <div class="wrapper-for-feedback-button">
-                    <b-button class="feedback-button is-info" rounded>
+                    <b-button class="feedback-button is-info" rounded
+                    @click="sendFeedback({
+                      question: question
+                      })">
                       Отправить
                     </b-button>
                   </div>
@@ -55,28 +58,12 @@ export default {
   data() {
     return {
       windowWidth: window.innerWidth,
-      feedbacks: [
-        {
-          date: '20:30, 19.03.2020',
-          question: 'Здравствуйте! Вопрос?',
-          answer: {
-            boolean: true,
-            text: 'Здравствуйте! Тут ответ'
-          }
-        },
-        {
-          date: '14:30, 27.03.2020',
-          question: 'Здравствуйте! Другой вопрос?',
-          answer: {
-            boolean: false,
-            text: ''
-          }
-        }
-      ]
+      question: ''
     };
   },
   computed: {
     ...mapState('sidebar', ['paddingMainBlock']),
+    ...mapState('feedback', ['feedbacks']),
     isMobile() {
       return this.windowWidth < 979;
     }
@@ -91,6 +78,7 @@ export default {
   },
   methods: {
     ...mapActions('sidebar', ['fixStateOfPadding']),
+    ...mapActions('feedback', ['sendFeedback'])
   }
 };
 </script>

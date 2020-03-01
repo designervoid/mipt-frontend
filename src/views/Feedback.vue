@@ -2,9 +2,9 @@
   <div>
     <main-header></main-header>
     <div class="container">
-      <div v-bind:class="!isMobile ? 'columns' : 'columns-mobile'">
-        <main-sidebar v-if="!isMobile"></main-sidebar>
-        <div class="column" v-bind:class="isMobile ? 'is-12' : 'is-9'">
+      <div class="columns">
+        <main-sidebar></main-sidebar>
+        <div class="column is-12">
           <div class="container">
             <div class="wrapped-container">
               <div class="columns">

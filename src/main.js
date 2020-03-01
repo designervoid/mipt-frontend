@@ -7,6 +7,8 @@ import Buefy from "buefy";
 import Vuelidate from "vuelidate";
 import VueWait from "vue-wait";
 import vAvatar from '@amaury-tobias/v-avatar'
+import VueSidebarMenu from 'vue-sidebar-menu'
+import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
 
 import Preloader from "./components/Preloader";
 import MainHeader from "./layouts/MainHeader";
@@ -26,7 +28,7 @@ import {
   faEye,
   faEyeSlash,
   faCheck,
-  faExclamationCircle
+  faExclamationCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -38,7 +40,8 @@ Vue.use(Buefy, {
 });
 Vue.use(Vuelidate);
 Vue.use(VueWait);
-Vue.use(vAvatar)
+Vue.use(vAvatar);
+Vue.use(VueSidebarMenu);
 
 new Vue({
   router,

@@ -1,22 +1,18 @@
 <template>
-  <div class="column is-3">
-    <aside class="menu">
-      <p class="menu-label">
-        {{ sidebarHeader }}
-      </p>
-      <ul class="menu-list">
-        <li v-for="(pieceOfNavigation, index) in sidebarNavigation" :key="index">
-          <router-link :to="pieceOfNavigation.path">{{ pieceOfNavigation.text }}</router-link>
-        </li>
-      </ul>
-    </aside>
-  </div>
+  <sidebar-menu :menu="sidebarNavigation" ref="sidebar_menu" />
 </template>
 <script>
 import { mapState } from 'vuex';
   export default {
+    data() {
+      return {
+      }
+    },
     computed: {
       ...mapState('sidebar', ['sidebarHeader', 'sidebarNavigation'])
+    },
+    mounted() {
+      // this.$refs.sidebar_menu.isCollapsed = true;
     }
   }
 </script>

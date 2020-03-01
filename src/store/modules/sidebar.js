@@ -4,17 +4,25 @@ const state = {
   sidebarHeader: 'Личный кабинет',
   sidebarNavigation: [
     {
-      path: '/news',
-      text: 'Новости'
+        header: true,
+        title: 'Личный кабинет',
+        hiddenOnCollapse: true,
     },
     {
-      path: '/requests',
-      text: 'Заявки'
+      href: '/news',
+      title: 'Новости',
+      icon: 'fa fa-user'
     },
     {
-      path: '/feedback',
-      text: 'Обратная связь'
+      href: '/requests',
+      title: 'Заявки',
+      icon: 'fa fa-user'
     },
+    {
+      href: '/feedback',
+      title: 'Обратная связь',
+      icon: 'fa fa-user'
+    }
   ]
 };
 
@@ -27,33 +35,50 @@ const actions = {
     if (headerText === 'Личный кабинет') {
       commit(SET_SIDEBAR_NAVIGATION, [
         {
-          path: '/news',
-          text: 'Новости'
+            header: true,
+            title: 'Личный кабинет',
+            hiddenOnCollapse: true,
         },
         {
-          path: '/requests',
-          text: 'Заявки'
+          href: '/news',
+          title: 'Новости',
+          icon: 'fa fa-user'
         },
         {
-          path: '/feedback',
-          text: 'Обратная связь'
+          href: '/requests',
+          title: 'Заявки',
+          icon: 'fa fa-user'
         },
+        {
+          href: '/feedback',
+          title: 'Обратная связь',
+          icon: 'fa fa-user'
+        }
       ])
     } else if (headerText === 'Профиль') {
-      commit(SET_SIDEBAR_NAVIGATION, [
-        {
-          path: '/data-profile',
-          text: 'Данные профиля'
-        },
-        {
-          path: '/contacts-profile',
-          text: 'Контакты'
-        },
-        {
-          path: '/useful-info',
-          text: 'Полезная информация'
-        },
-      ])
+      commit(SET_SIDEBAR_NAVIGATION,
+        [
+          {
+              header: true,
+              title: 'Профиль',
+              hiddenOnCollapse: true,
+          },
+          {
+            href: '/data-profile',
+            title: 'Данные профиля',
+            icon: 'fa fa-user'
+          },
+          {
+            href: '/contacts-profile',
+            title: 'Контакты',
+            icon: 'fa fa-user'
+          },
+          {
+            href: '/useful-info',
+            title: 'Полезная информация',
+            icon: 'fa fa-user'
+          }
+        ])
     } else if (headerText === 'Выход') {
       commit(SET_SIDEBAR_NAVIGATION, [])
     }
@@ -62,7 +87,7 @@ const actions = {
 
 const mutations = {
   [SET_SIDEBAR_HEADER](state, payload) {
-    state.sidebarHeader = payload;
+    state.sidebarNavigation[0].title = payload;
   },
   [SET_SIDEBAR_NAVIGATION](state, payload) {
     state.sidebarNavigation = payload;

@@ -7,7 +7,7 @@ import Orders from "../views/Orders.vue";
 import Feedback from "../views/Feedback.vue";
 import DataProfile from "../views/DataProfile.vue";
 import ContactsProfile from "../views/ContactsProfile.vue";
-import UsefulInfo from "../views/UsefulInfo.vue";
+import UsefullInfo from "../views/UsefullInfo.vue";
 
 Vue.use(VueRouter);
 
@@ -49,8 +49,8 @@ const routes = [
   },
   {
     path: "/useful-info",
-    name: "usefulInfo",
-    component: UsefulInfo
+    name: "UsefullInfo",
+    component: UsefullInfo
   }
 ];
 

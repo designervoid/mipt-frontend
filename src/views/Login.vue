@@ -116,17 +116,18 @@ section {
   background-image: url(../assets/mft.svg);
   background-size: 200%;
   height: 100%;
+  max-width: 1440px;
   width: 100%;
 }
 .container1 {
   background-color: #FFFFFF;
-  width: 426px;
+  max-width: 1280px;
   height: 484px;
   display: flex;
   border-radius: 10px;
   flex-direction: column;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
   /* justify-content: space-around; */
-
 }
 .menu-header {
   background-color: #0069B4;
@@ -140,6 +141,8 @@ section {
 .menu {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  /* justify-content: space-evenly; */
 }
 h1 {
   display: flex;
@@ -162,7 +165,7 @@ p {
   font-size: 14px;
   line-height: 16px;
   color: #000000;
-  margin-top: 38px;
+  margin-top: 32px;
 }
 .input-field {
   display: flex;
@@ -171,12 +174,9 @@ p {
   text-align: center;
   height: 46px;
   width: 311px;
-  padding-left: 85px;
 }
 .e-mail {
-  margin-top: 17px;
-}
-.pass {
+  margin-top: 13px;
 }
 .button1 {
   display: flex;
@@ -189,30 +189,20 @@ p {
   width: 311px;
   height: 46px;
   color: #FFFFFF;
-  margin-top: 20px;
-  margin-left: 42px;
-  width: 79%;
 }
 img {
   width: 128.13px;
   height: 56px;
 }
-   /* @media screen and (max-device-width: 425px) {
-    .container1 {width: 110%;}
-   } */
-   @media screen and (max-width: 300px) {
-     section {width: 200%;}
-     .button1 {margin-left: 10px; }
-     .input-field {padding-left: 20px;}
-     .container1 {width: 90%;}
-     .menu-header {width: 90%;}
-   }
-   @media screen and (max-height: 800px) {
-     section {height: 85%;}
-     .container1 {margin-left: 80px;}
-     .menu-header {border-radius: 0;}
-
-
-   }
+  @media screen and (max-width: 768px) {
+  section {width: 105%;}
+}
+  @media screen and (max-width: 375px) {
+  section {width: 130%;}
+  /* section {height: 500px;} */
+}
+   @media screen and (max-width: 320px) {
+     section {width: 144%;}
+}
 
 </style>

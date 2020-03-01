@@ -15,17 +15,17 @@ const state = {
     {
       href: "/news",
       title: "Новости",
-      icon: "fa-caret-down"
+      icon: "far fa-newspaper"
     },
     {
       href: "/orders",
       title: "Заявки",
-      icon: "fa fa-user"
+      icon: "far fa-user"
     },
     {
       href: "/feedback",
       title: "Обратная связь",
-      icon: "fa fa-user"
+      icon: "far fa-user"
     }
   ],
   paddingMainBlock: "50px"
@@ -47,17 +47,17 @@ const actions = {
         {
           href: "/news",
           title: "Новости",
-          icon: "fa fa-user"
+          icon: "far fa-newspaper"
         },
         {
           href: "/orders",
           title: "Заявки",
-          icon: "fa fa-user"
+          icon: "far fa-user"
         },
         {
           href: "/feedback",
           title: "Обратная связь",
-          icon: "fa fa-user"
+          icon: "far fa-user"
         }
       ]);
     } else if (headerText === "Профиль") {

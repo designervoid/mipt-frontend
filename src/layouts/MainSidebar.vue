@@ -32,7 +32,14 @@ export default {
 .menu {
   padding: 1rem;
 }
-
+.vsm--icon {
+  background-color: #ffffff !important;
+  color: black !important;
+}
+.vsm--icon:active {
+  background-color: black !important;
+  color: white !important;
+}
 @media screen and (max-width: 979px) {
   .column.is-3 {
     display: none;

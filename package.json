@@ -17,6 +17,7 @@
     "vuex": "^3.1.2"
   },
   "devDependencies": {
+    "@amaury-tobias/v-avatar": "^2.0.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/vue-fontawesome": "^0.1.9",
@@ -39,6 +40,7 @@
     "node-sass": "^4.12.0",
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
+    "vue-sidebar-menu": "^4.5.2",
     "vue-spinner": "^1.0.3",
     "vue-template-compiler": "^2.6.11",
     "vue-wait": "^1.4.8",

@@ -1,12 +1,10 @@
 <template>
-
-<section>
-  <!-- <code>{{ this.$v }}</code> <br> -->
-  <!-- <code>{{ form }}</code> -->
-  <!-- <code>{{ focus }}</code> <br>
+  <section>
+    <!-- <code>{{ this.$v }}</code> <br> -->
+    <!-- <code>{{ form }}</code> -->
+    <!-- <code>{{ focus }}</code> <br>
   <code>{{ blur }}</code> <br>
   {{ validateField('email') }} -->
-
   <div class="container1">
     <div class="menu-header">
       <img src="@/assets/mipt_rus_inv.png" alt="Logo">
@@ -30,22 +28,15 @@
 </template>
 
 <script>
-
-import {
-  required,
-  email,
-  minLength,
-} from 'vuelidate/lib/validators'
-import {
-  mapActions
-} from 'vuex';
+import { required, email, minLength } from "vuelidate/lib/validators";
+import { mapActions } from "vuex";
 
 export default {
   data() {
     return {
       form: {
-        email: '',
-        password: ''
+        email: "",
+        password: ""
       },
       focus: {
         email: false,
@@ -55,7 +46,7 @@ export default {
         email: null,
         password: null
       }
-    }
+    };
   },
   validations: {
     form: {
@@ -71,14 +62,14 @@ export default {
   },
   computed: {
     isValidEmail() {
-      return this.$v.form.email.$invalid
+      return this.$v.form.email.$invalid;
     },
     isValidPassword() {
-      return this.$v.form.password.$invalid
+      return this.$v.form.password.$invalid;
     }
   },
   methods: {
-    ...mapActions('auth', ['getToken']),
+    ...mapActions("auth", ["getToken"]),
     login() {
       const email = this.form.email;
       const password = this.form.password;
@@ -86,7 +77,7 @@ export default {
     },
     setField(key, value) {
       this.form[key] = value;
-      this.$v.form[key].$touch()
+      this.$v.form[key].$touch();
     },
     onFocusField(key) {
       this.focus[key] = true;
@@ -100,15 +91,14 @@ export default {
       if (this.blur[key] === null) {
         return null;
       } else {
-        return this.$v.form[key].$invalid ? 'is-danger' : 'is-success';
+        return this.$v.form[key].$invalid ? "is-danger" : "is-success";
       }
     }
   }
-}
+};
 </script>
 
 <style lang="css" scoped>
-
 section {
   display: flex;
   justify-content: center;
@@ -129,6 +119,7 @@ section {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
   /* justify-content: space-around; */
 }
+
 .menu-header {
   background-color: #0069B4;
   width: 426px;
@@ -183,7 +174,7 @@ p {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #0069B4;
+  background-color: #0069b4;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.125);
   border-radius: 5px;
   width: 311px;

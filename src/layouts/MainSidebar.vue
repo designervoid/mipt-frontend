@@ -1,37 +1,32 @@
 <template>
-<div class="column is-3">
-  <aside class="menu">
-    <p class="menu-label">
-      Админ
-    </p>
-    <ul class="menu-list">
-      <li><a>Заявки</a></li>
-      <li>
-        <ul>
-          <li><a>Просмотр заявок</a></li>
-        </ul>
-      </li>
-    </ul>
-    <p class="menu-label">
-      Главное
-    </p>
-    <ul class="menu-list">
-      <li><a>Личный кабинет</a></li>
-      <li><a class="is-active">Заявки</a></li>
-      <li><a>Обратная связь</a></li>
-    </ul>
-  </aside>
-</div>
+  <sidebar-menu :menu="sidebarNavigation" @toggle-collapse="onToggleCollapse" width="200px" widthCollapsed="50px" :collapsed="true" ref="sidebar_menu" />
 </template>
-
-<style lang="css">
-  .menu {
-    padding: 1rem;
-  }
-
-  @media screen and (max-width: 979px) {
-    .column.is-3 {
-      display: none;
+<script>
+import { mapState, mapActions } from 'vuex';
+  export default {
+    data() {
+      return {
+      }
+    },
+    computed: {
+      ...mapState('sidebar', ['sidebarHeader', 'sidebarNavigation'])
+    },
+    methods: {
+      ...mapActions('sidebar', ['changeStateOfPadding']),
+      onToggleCollapse(collapsed) {
+        this.changeStateOfPadding({ isCollapsed: collapsed })
+      }
     }
   }
+</script>
+<style lang="css">
+.menu {
+  padding: 1rem;
+}
+
+@media screen and (max-width: 979px) {
+  .column.is-3 {
+    display: none;
+  }
+}
 </style>

@@ -10,14 +10,35 @@
     </div>
     <div class="wrapped-right-block">
       <div class="wrapped-right-heading title is-5">
-        <span v-if="progressApproval === 'Обработка'" class="has-text-warning">{{ progressApproval }}</span>
-        <span v-if="progressApproval === 'Подтверждено'" class="has-text-warning">{{ progressApproval }}</span>
-        <span v-if="progressApproval === 'Выполнено'" class="has-text-success">{{ progressApproval }}</span>
+        <span
+          v-if="progressApproval === 'Обработка'"
+          class="has-text-warning"
+          >{{ progressApproval }}</span
+        >
+        <span
+          v-if="progressApproval === 'Подтверждено'"
+          class="has-text-warning"
+          >{{ progressApproval }}</span
+        >
+        <span
+          v-if="progressApproval === 'Выполнено'"
+          class="has-text-success"
+          >{{ progressApproval }}</span
+        >
       </div>
       <div class="wrapped-right-description">
-        <button class="button is-primary is-rounded" v-if="progressApproval === 'Выполнено'">{{ descriptionOfApproval }}</button>
-        <span v-if="progressApproval === 'Обработка'">{{ progressApproval }}</span>
-        <span v-if="progressApproval === 'Подтверждено'">{{ progressApproval }}</span>
+        <button
+          class="button is-primary is-rounded"
+          v-if="progressApproval === 'Выполнено'"
+        >
+          {{ descriptionOfApproval }}
+        </button>
+        <span v-if="progressApproval === 'Обработка'">{{
+        descriptionOfApproval
+        }}</span>
+        <span v-if="progressApproval === 'Подтверждено'">{{
+          descriptionOfApproval
+        }}</span>
       </div>
     </div>
   </div>
@@ -28,30 +49,30 @@ export default {
   props: {
     professionType: {
       type: String,
-      default () {
-        return ''
+      default() {
+        return "";
       }
     },
     descriptionOfProblem: {
       type: String,
-      default () {
-        return ''
+      default() {
+        return "";
       }
     },
     progressApproval: {
       type: String,
-      default () {
-        return ''
+      default() {
+        return "";
       }
     },
     descriptionOfApproval: {
       type: String,
-      default () {
-        return ''
+      default() {
+        return "";
       }
-    },
-  },
-}
+    }
+  }
+};
 </script>
 
 <style lang="css" scoped>

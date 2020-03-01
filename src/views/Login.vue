@@ -8,32 +8,25 @@
   {{ validateField('email') }} -->
 
   <div class="container1">
-    <div class="auth-header">
+    <div class="menu-header">
       <img src="@/assets/mipt_rus_inv.png" alt="Logo">
     </div>
     <div class="menu">
-
-
       <h1>Авторизация</h1>
-      <p>Привет всем заходящим пришельцам <br>
-         С вами наш жилищно-бытовой сервис</p>
+      <p>Привет всем заходящим пришельцам. <br>
+         Войдите на наш жилищно-бытовой сервис!</p>
       <b-field label="" :type="validateField('email')">
         <b-input class="input-field e-mail" v-model.trim="form.email" @input="setField('email', $event)" @focus="onFocusField('email')" @blur="onBlurField('email')">
-
         </b-input>
       </b-field>
-
       <b-field label="" :type="validateField('password')">
         <b-input class="input-field pass" v-model.trim="form.password" @input="setField('password', $event)" @focus="onFocusField('password')" @blur="onBlurField('password')" password-reveal>
         </b-input>
       </b-field>
       <b-button class="button1" @click="login();">Login</b-button>
     </div>
-    </div>
-
-
+  </div>
 </section>
-
 </template>
 
 <script>
@@ -121,19 +114,21 @@ section {
   justify-content: center;
   align-items: center;
   background-image: url(../assets/mft.svg);
+  background-size: 200%;
   height: 100%;
+  width: 100%;
 }
 .container1 {
   background-color: #FFFFFF;
   width: 426px;
-  height: 432px;
+  height: 484px;
   display: flex;
   border-radius: 10px;
   flex-direction: column;
   /* justify-content: space-around; */
 
 }
-.auth-header {
+.menu-header {
   background-color: #0069B4;
   width: 426px;
   height: 72px;
@@ -141,25 +136,21 @@ section {
   padding: 10px 0 0 0;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-
 }
 .menu {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
 }
 h1 {
   display: flex;
   justify-content: center;
   text-align: center;
-  font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 29px;
   color: #000000;
   margin-top: 40px;
-
 }
 p {
   display: flex;
@@ -180,13 +171,12 @@ p {
   text-align: center;
   height: 46px;
   width: 311px;
-  padding-left: 106px;
+  padding-left: 85px;
 }
 .e-mail {
   margin-top: 17px;
 }
 .pass {
-
 }
 .button1 {
   display: flex;
@@ -199,11 +189,30 @@ p {
   width: 311px;
   height: 46px;
   color: #FFFFFF;
-  margin-left: 56px;
-
+  margin-top: 20px;
+  margin-left: 42px;
+  width: 79%;
 }
 img {
   width: 128.13px;
   height: 56px;
 }
+   /* @media screen and (max-device-width: 425px) {
+    .container1 {width: 110%;}
+   } */
+   @media screen and (max-width: 300px) {
+     section {width: 200%;}
+     .button1 {margin-left: 10px; }
+     .input-field {padding-left: 20px;}
+     .container1 {width: 90%;}
+     .menu-header {width: 90%;}
+   }
+   @media screen and (max-height: 800px) {
+     section {height: 85%;}
+     .container1 {margin-left: 80px;}
+     .menu-header {border-radius: 0;}
+
+
+   }
+
 </style>

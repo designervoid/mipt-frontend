@@ -5,11 +5,13 @@
 </template>
 
 <style media="screen">
-html {
-  height: 100%;
-}
-body {
-  height: 100%;
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
 }
 #app {
   height: 100%;

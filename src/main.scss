@@ -17,3 +17,10 @@ $modal-content-width: 960px;
 
 
 // custom
+
+.control.has-icons-right .icon  {
+  top: inherit;
+}
+.button[disabled] {
+  color: black;
+}

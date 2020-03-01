@@ -14,6 +14,7 @@
           <b-input
             class="input-field e-mail"
             v-model.trim="form.email"
+            placeholder="test@mail.ru"
             @input="setField('email', $event)"
             @focus="onFocusField('email')"
             @blur="onBlurField('email')"
@@ -27,11 +28,11 @@
             @input="setField('password', $event)"
             @focus="onFocusField('password')"
             @blur="onBlurField('password')"
-            password-reveal
+            type="password"
           >
           </b-input>
         </b-field>
-        <b-button class="button1" @click="login()">Login</b-button>
+        <b-button class="button1" @click="login()" :disabled="isValidEmail || isValidPassword">Login</b-button>
       </div>
     </div>
   </section>

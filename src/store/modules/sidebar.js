@@ -1,34 +1,32 @@
 import {
   SET_SIDEBAR_HEADER,
   SET_SIDEBAR_NAVIGATION,
-  SET_PADDING_MAIN_BLOCK
+  SET_PADDING_MAIN_BLOCK,
+  SET_HIDDEN_SIDEBAR
 } from "@/store/mutation-types";
 
 const state = {
   sidebarHeader: "Личный кабинет",
   sidebarNavigation: [
     {
-      header: true,
-      title: "Личный кабинет",
-      hiddenOnCollapse: true
-    },
-    {
       href: "/news",
-      title: "Новости",
+      title: 'Новости',
       icon: "far fa-newspaper"
     },
     {
       href: "/orders",
-      title: "Заявки",
+      title: 'Заявки',
       icon: "far fa-list-alt"
     },
     {
       href: "/feedback",
-      title: "Обратная связь",
+      title: 'Фидбек',
       icon: "far fa-comment-dots"
     }
   ],
-  paddingMainBlock: "50px"
+  paddingMainBlock: "50px",
+  isCollapsed: true,
+  isHideSidebar: false
 };
 
 const getters = {};
@@ -40,46 +38,30 @@ const actions = {
     if (headerText === "Личный кабинет") {
       commit(SET_SIDEBAR_NAVIGATION, [
         {
-          header: true,
-          title: "Личный кабинет",
-          hiddenOnCollapse: true
-        },
-        {
           href: "/news",
-          title: "Новости",
           icon: "far fa-newspaper"
         },
         {
           href: "/orders",
-          title: "Заявки",
           icon: "far fa-list-alt"
         },
         {
           href: "/feedback",
-          title: "Обратная связь",
           icon: "far fa-comment-dots"
         }
       ]);
     } else if (headerText === "Профиль") {
       commit(SET_SIDEBAR_NAVIGATION, [
         {
-          header: true,
-          title: "Профиль",
-          hiddenOnCollapse: true
-        },
-        {
           href: "/data-profile",
-          title: "Данные профиля",
           icon: "fa fa-user"
         },
         {
           href: "/contacts-profile",
-          title: "Контакты",
           icon: "fa fa-user"
         },
         {
           href: "/useful-info",
-          title: "Полезная информация",
           icon: "fa fa-user"
         }
       ]);
@@ -91,11 +73,14 @@ const actions = {
     if (payload.isCollapsed) {
       commit(SET_PADDING_MAIN_BLOCK, "50px");
     } else {
-      commit(SET_PADDING_MAIN_BLOCK, "150px");
+      commit(SET_PADDING_MAIN_BLOCK, "80px");
     }
   },
   fixStateOfPadding({ commit }) {
     commit(SET_PADDING_MAIN_BLOCK, "50px");
+  },
+  changeStateOfHideSidebar({ commit }) {
+    commit(SET_HIDDEN_SIDEBAR);
   }
 };
 
@@ -108,6 +93,9 @@ const mutations = {
   },
   [SET_PADDING_MAIN_BLOCK](state, payload) {
     state.paddingMainBlock = payload;
+  },
+  [SET_HIDDEN_SIDEBAR](state) {
+    state.isHideSidebar = !state.isHideSidebar;
   }
 };
 

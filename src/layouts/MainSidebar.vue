@@ -2,10 +2,11 @@
   <sidebar-menu
     :menu="sidebarNavigation"
     @toggle-collapse="onToggleCollapse"
-    width="150px"
+    width="80px"
     widthCollapsed="50px"
-    :collapsed="true"
+    :collapsed="isCollapsed"
     ref="sidebar_menu"
+    :style="{ display: isHideSidebar ? 'none' : 'flex' }"
   >
     <span slot="toggle-icon"><i class="fas fa-arrow-right"></i></span>
   </sidebar-menu>
@@ -14,10 +15,12 @@
 import { mapState, mapActions } from "vuex";
 export default {
   data() {
-    return {};
+    return {
+
+    };
   },
   computed: {
-    ...mapState("sidebar", ["sidebarHeader", "sidebarNavigation"])
+    ...mapState("sidebar", ["sidebarHeader", "sidebarNavigation", "isCollapsed", "isHideSidebar"])
   },
   methods: {
     ...mapActions("sidebar", ["changeStateOfPadding"]),
@@ -34,9 +37,30 @@ export default {
 .vsm--icon {
   background-color: #2a2a2e !important;
   color: #ffffff !important;
+  margin: 0 !important;
 }
-.vsm--title {
-  font-size: 0.5rem;
+.vsm--header, .vsm--title {
+  font-size: 0.4rem !important;
+}
+
+.vsm--link {
+  width:100%;
+  display: flex !important;
+  justify-content: center !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.vsm--item {
+  display: flex !important;
+  width:100%;
+}
+/* .vsm--toggle-btn {
+  margin-bottom: 100px;
+} */
+.vsm--mobile-bg {
+  display: none;
 }
 .vsm--icon:active {
   background-color: black !important;

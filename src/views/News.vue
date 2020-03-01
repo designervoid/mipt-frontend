@@ -33,6 +33,7 @@
                         v-model="selectedMarks"
                         multiple
                         aria-role="list"
+                        @active-change="activateFilterDropdown();"
                       >
                         <button
                           class="button is-info selected-marks"
@@ -114,10 +115,13 @@ export default {
     }
   },
   methods: {
-    ...mapActions("sidebar", ["fixStateOfPadding"]),
+    ...mapActions("sidebar", ["fixStateOfPadding", "changeStateOfHideSidebar"]),
     ...mapActions("news", ["getNews"]),
     clearMarks() {
       this.selectedMarks = [];
+    },
+    activateFilterDropdown() {
+      this.changeStateOfHideSidebar();
     }
   }
 };

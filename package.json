@@ -44,6 +44,7 @@
     "vue-spinner": "^1.0.3",
     "vue-template-compiler": "^2.6.11",
     "vue-wait": "^1.4.8",
-    "vuelidate": "^0.7.5"
+    "vuelidate": "^0.7.5",
+    "browser-sync": "^2.26.7"
   }
 }

@@ -33,7 +33,7 @@
                         v-model="selectedMarks"
                         multiple
                         aria-role="list"
-                        @active-change="activateFilterDropdown()"
+                        @active-change="isMobile && activateFilterDropdown()"
                       >
                         <button
                           class="button is-info selected-marks"
@@ -101,7 +101,7 @@ export default {
     }
   },
   created() {
-    this.getNews();
+    // this.getNews();
   },
   mounted() {
     window.onresize = () => {

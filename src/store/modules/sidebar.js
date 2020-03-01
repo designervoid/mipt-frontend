@@ -66,7 +66,7 @@ const actions = {
           icon: "far fa-building"
         },
         {
-          href: "/useful-info",
+          href: "/usefull-info",
           title: "Информация",
           icon: "far fa-clipboard"
         }

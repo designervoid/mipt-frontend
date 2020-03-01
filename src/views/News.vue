@@ -128,6 +128,11 @@ export default {
   width: 409px;
   height: 64px;
 }
+
+.filter-buttons {
+  display: flex;
+}
+
 a.dropdown-item.is-active {
   background-color: #209cee !important;
 }

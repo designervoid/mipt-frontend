@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import tokenHandling from "@/store/modules/tokenHandler";
 import auth from "@/store/modules/auth";
+import user from "@/store/modules/user";
 import sidebar from "@/store/modules/sidebar";
 import news from "@/store/modules/news";
 import orders from "@/store/modules/orders";
@@ -16,6 +17,7 @@ export default new Vuex.Store({
   modules: {
     tokenHandling,
     auth,
+    user,
     sidebar,
     news,
     orders,

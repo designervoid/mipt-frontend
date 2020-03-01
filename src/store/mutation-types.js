@@ -10,3 +10,4 @@ export const SET_NEWS = "SET_NEWS";
 export const SET_CATEGORIES = "SET_CATEGORIES";
 export const SET_ORDERS = "SET_ORDERS";
 export const SET_FEEDBACKS = "SET_FEEDBACKS";
+export const SET_REQUISITES = "SET_REQUISITES";

@@ -40,7 +40,7 @@ export default {
   margin: 0 !important;
 }
 .vsm--header, .vsm--title {
-  font-size: 0.4rem !important;
+  font-size: 0.5rem !important;
 }
 
 .vsm--link {
@@ -55,11 +55,15 @@ export default {
 .vsm--item {
   display: flex !important;
   width:100%;
+  transition: top 0.55s all ease;
 }
 /* .vsm--toggle-btn {
   margin-bottom: 100px;
 } */
 .vsm--mobile-bg {
+  display: none;
+}
+.vsm--mobile-item {
   display: none;
 }
 .vsm--icon:active {

@@ -83,7 +83,7 @@ nav {
   height: 80px;
 }
 .navbar-logo {
-  margin-left: 3.5rem;
+  margin-left: 5rem;
 }
 .navbar-item,
 .navbar-link {

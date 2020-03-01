@@ -39,14 +39,17 @@ const actions = {
       commit(SET_SIDEBAR_NAVIGATION, [
         {
           href: "/news",
+          title: 'Новости',
           icon: "far fa-newspaper"
         },
         {
           href: "/orders",
+          title: 'Заявки',
           icon: "far fa-list-alt"
         },
         {
           href: "/feedback",
+          title: 'Фидбек',
           icon: "far fa-comment-dots"
         }
       ]);
@@ -54,15 +57,18 @@ const actions = {
       commit(SET_SIDEBAR_NAVIGATION, [
         {
           href: "/data-profile",
+          title: 'Профиль',
           icon: "fa fa-user"
         },
         {
           href: "/contacts-profile",
-          icon: "fa fa-user"
+          title: 'Контакты',
+          icon: "far fa-building"
         },
         {
           href: "/useful-info",
-          icon: "fa fa-user"
+          title: 'Информация',
+          icon: "far fa-clipboard"
         }
       ]);
     } else if (headerText === "Выход") {

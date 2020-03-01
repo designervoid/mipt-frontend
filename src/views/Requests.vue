@@ -44,7 +44,6 @@
                       style="margin-top: 1rem; margin-bottom: 1rem;">
                       <button class="button is-link selectedCategory" type="button" slot="trigger">
                         {{ selectedCategory.length > 0 ? selectedCategory : 'Выберите категорию' }}
-                          <b-icon icon="caret-down"></b-icon>
                       </button>
 
                       <b-dropdown-item v-for="(category, index) in categories" :key="index" :value="category" aria-role="listitem">

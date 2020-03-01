@@ -11,7 +11,7 @@ const state = {
     {
       href: '/news',
       title: 'Новости',
-      icon: 'fa fa-user'
+      icon: 'fa-caret-down'
     },
     {
       href: '/requests',

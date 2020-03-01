@@ -7,7 +7,7 @@
         <div class="column is-12" v-bind:style="{ 'padding-left': paddingMainBlock, 'transition': '0.55s all ease'  }">
           <div class="container">
             <div class="wrapped-container">
-              <div class="columns">
+              <div class="columns" v-if="!createNewRequest">
                 <div class="column is-12">
                   <h1 class="title" v-bind:class="!isMobile ? 'is-2' : 'is-4'">Заявки</h1>
                   <p class="is-size-5">
@@ -20,11 +20,48 @@
                     occaecat cupidatat non proident, sunt in culpa qui officia
                     deserunt mollit anim id est laborum.
                   </p>
-                  <b-button class="request-button" rounded
+                  <b-button class="request-button" rounded @click="changeStateOfNewRequest();"
                     >Создать новую заявку</b-button
                   >
                 </div>
               </div>
+              <div class="columns" v-else>
+                <div class="column is-12">
+                  <h1 class="title" v-bind:class="!isMobile ? 'is-2' : 'is-4'">Заявки</h1>
+                  <p class="is-size-5">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                  </p>
+                  <b-dropdown
+                      v-model="selectedCategory"
+                      aria-role="list">
+                      <button class="button is-link" type="button" slot="trigger">
+                          Выберите категорию
+                          <b-icon icon="caret-down"></b-icon>
+                      </button>
+
+                      <b-dropdown-item v-for="(category, index) in categories" :key="index" :value="category" aria-role="listitem">
+                          <span>{{ category }}</span>
+                      </b-dropdown-item>
+                  </b-dropdown>
+                  <b-field>
+                              <b-input type="textarea"
+                                  placeholder="Опишите свою проблему">
+                              </b-input>
+                          </b-field>
+                            <div class="category-buttons">
+                              <b-button type="is-link" inverted>Отмена</b-button>
+                              <b-button type="is-link">Отправить</b-button>
+                            </div>
+                </div>
+              </div>
+
               <div class="columns">
                 <div class="column is-12">
                   <h1 class="title" v-bind:class="!isMobile ? 'is-2' : 'is-4'">Предыдущие заявки</h1>
@@ -47,7 +84,9 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import {
+  mapState
+} from 'vuex';
 import BlockRequests from "@/components/BlockRequests.vue";
 
 export default {
@@ -57,8 +96,13 @@ export default {
   data() {
     return {
       windowWidth: window.innerWidth,
-      requests: [
-        {
+      createNewRequest: false,
+      categories: [
+        'Сантехник',
+        'Электрик',
+        'Плотник'
+      ],
+      requests: [{
           professionType: "Сантехник",
           descriptionOfProblem: "Протек смеситель",
           progressApproval: "Обработка",
@@ -89,6 +133,11 @@ export default {
     window.onresize = () => {
       this.windowWidth = window.innerWidth;
     };
+  },
+  methods: {
+    changeStateOfNewRequest() {
+      this.createNewRequest = true;
+    }
   }
 };
 </script>

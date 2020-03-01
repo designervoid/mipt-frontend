@@ -8,7 +8,7 @@ import Vuelidate from "vuelidate";
 import VueWait from "vue-wait";
 import vAvatar from '@amaury-tobias/v-avatar'
 import VueSidebarMenu from 'vue-sidebar-menu'
-import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
+import 'vue-sidebar-menu/dist/vue-sidebar-menu.css';
 
 import Preloader from "./components/Preloader";
 import MainHeader from "./layouts/MainHeader";
@@ -29,10 +29,12 @@ import {
   faEyeSlash,
   faCheck,
   faExclamationCircle,
+  faCaretDown,
+  faCaretUp
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faGlobe, faEye, faEyeSlash, faCheck, faExclamationCircle);
+library.add(faGlobe, faEye, faEyeSlash, faCheck, faExclamationCircle, faCaretDown, faCaretUp);
 Vue.component("vue-fontawesome", FontAwesomeIcon);
 Vue.use(Buefy, {
   defaultIconComponent: "vue-fontawesome",

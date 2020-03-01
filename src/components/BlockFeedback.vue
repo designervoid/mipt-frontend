@@ -8,10 +8,15 @@
         {{ question }}
       </div>
       <div class="wrapped-left-answer" v-if="answer.boolean === true">
-        <span>
-          Развернуть
-        </span> <br>
-        {{ answer.text }}
+        <b-collapse :open="false" position="is-top" aria-id="contentIdForA11y1">
+            <a slot="trigger" slot-scope="props" aria-controls="contentIdForA11y1">
+                <b-icon :icon="!props.open ? 'caret-down' : 'caret-up'"></b-icon>
+                {{ !props.open ? 'Развернуть' : 'Свернуть' }}
+            </a>
+            <p>
+                {{ answer.text }}
+            </p>
+        </b-collapse>
       </div>
     </div>
     <div class="wrapped-right-block">

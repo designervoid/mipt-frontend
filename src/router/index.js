@@ -48,7 +48,7 @@ const routes = [
     component: ContactsProfile
   },
   {
-    path: "/useful-info",
+    path: "/usefull-info",
     name: "UsefullInfo",
     component: UsefullInfo
   }

@@ -54,16 +54,18 @@ export default {
     };
   },
   methods: {
-    ...mapActions('sidebar', ['changeSidebarHeader']),
+    ...mapActions('sidebar', ['changeSidebarHeader', 'changeStateOfPadding']),
     toggleMenu() {
       this.isToggledMenu = !this.isToggledMenu;
     },
     pushToPersonalArea() {
       this.changeSidebarHeader({ headerText: 'Личный кабинет' });
+      this.changeStateOfPadding({ isCollapsed: true });
       if (this.$route.path !== '/news') this.$router.push('/news')
     },
     pushToContactsProfile() {
       this.changeSidebarHeader({ headerText: 'Профиль' });
+      this.changeStateOfPadding({ isCollapsed: true });
       if (this.$route.path !== '/data-profile') this.$router.push('/data-profile')
     },
     exit() {

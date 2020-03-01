@@ -33,12 +33,12 @@
                       </b-dropdown>
                     </div>
                   </div>
-                  <BlockNews v-for="(pieceOfNews, index) in news" :key="index"
-                  :header="pieceOfNews.header"
-                  :shortDescription="pieceOfNews.shortDescription"
-                  :text="pieceOfNews.text"
-                  :mark="pieceOfNews.mark"
-                  :selectedMarks="selectedMarks"/>
+                    <BlockNews v-for="(pieceOfNews, index) in news" :key="index"
+                    :header="pieceOfNews.header"
+                    :shortDescription="pieceOfNews.shortDescription"
+                    :text="pieceOfNews.text"
+                    :mark="pieceOfNews.mark"
+                    :selectedMarks="selectedMarks"/>
                 </div>
               </div>
             </div>

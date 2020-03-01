@@ -1,18 +1,20 @@
 <template lang="html">
-  <div class="block" v-if="selectedMarks.includes(mark.text) || selectedMarks.length === 0">
-    <div class="wrapped-left-block">
-      <div class="wrapped-left-heading title is-5 has-text-link">
-        {{ header }}
+  <transition name="fade">
+    <div class="block" v-if="selectedMarks.includes(mark.text) || selectedMarks.length === 0">
+      <div class="wrapped-left-block">
+        <div class="wrapped-left-heading title is-5 has-text-link">
+          {{ header }}
+        </div>
+        <div class="wrapped-left-description">
+          <div class="shortDescription">{{ shortDescription }}</div>
+          <div class="text">{{ text }}</div>
+        </div>
       </div>
-      <div class="wrapped-left-description">
-        <div class="shortDescription">{{ shortDescription }}</div>
-        <div class="text">{{ text }}</div>
+      <div class="wrapped-right-block" v-bind:style="{ 'background-color': mark.color }" @click="selectMark(mark.text)">
+        {{ mark.text }}
       </div>
     </div>
-    <div class="wrapped-right-block" v-bind:style="{ 'background-color': mark.color }" @click="selectMark(mark.text)">
-      {{ mark.text }}
-    </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -98,6 +100,13 @@ export default {
 
 .shortDescription {
   margin-bottom: 1rem;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
 }
 
 </style>

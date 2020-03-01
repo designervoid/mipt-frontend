@@ -4,7 +4,7 @@
     <div class="container">
       <div class="columns">
         <main-sidebar ref="sidebar_menu"></main-sidebar>
-        <div class="column is-12" v-bind:style="{ 'padding-left': paddingMainBlock }">
+        <div class="column is-12" v-bind:style="{ 'padding-left': paddingMainBlock, 'transition': '0.55s all ease'  }">
           <div class="container">
             <div class="wrapped-container">
               <div class="columns">

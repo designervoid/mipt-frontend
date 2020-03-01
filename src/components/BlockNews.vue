@@ -1,17 +1,18 @@
 <template lang="html">
   <transition name="fade">
-    <div class="block" v-if="selectedMarks.includes(mark.text) || selectedMarks.length === 0">
+    <div class="block" v-if="selectedMarks.includes(mark_text) || selectedMarks.length === 0">
       <div class="wrapped-left-block">
         <div class="wrapped-left-heading title is-5 has-text-link">
           {{ header }}
         </div>
         <div class="wrapped-left-description">
-          <div class="shortDescription">{{ shortDescription }}</div>
+          <div class="shortDescription">{{ short_description }}</div>
           <div class="text">{{ text }}</div>
+          <small class="date">{{ date_published }}</small>
         </div>
       </div>
-      <div class="wrapped-right-block" v-bind:style="{ 'background-color': mark.color }" @click="selectMark(mark.text)">
-        {{ mark.text }}
+      <div class="wrapped-right-block" v-bind:style="{ 'background-color': mark_color }" @click="selectMark(mark_text)">
+        {{ mark_text }}
       </div>
     </div>
   </transition>
@@ -26,7 +27,7 @@ export default {
         return ''
       }
     },
-    shortDescription: {
+    short_description: {
       type: String,
       default() {
         return ''
@@ -38,10 +39,22 @@ export default {
         return ''
       }
     },
-    mark: {
-      type: Object,
+    mark_text: {
+      type: String,
       default() {
-        return {}
+        return ''
+      }
+    },
+    date_published: {
+      type: String,
+      default() {
+        return ''
+      }
+    },
+    mark_color: {
+      type: String,
+      default() {
+        return ''
       }
     },
     selectedMarks: {

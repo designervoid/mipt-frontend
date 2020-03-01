@@ -25,19 +25,21 @@
                           </button>
 
                           <b-dropdown-item v-for="(pieceOfNews, index) in news" :key="index"
-                          :value="pieceOfNews.mark.text"
+                          :value="pieceOfNews.mark_text"
                           aria-role="listitem"
                           >
-                              <span>{{ pieceOfNews.mark.text }}</span>
+                              <span>{{ pieceOfNews.mark_text }}</span>
                           </b-dropdown-item>
                       </b-dropdown>
                     </div>
                   </div>
                     <BlockNews v-for="(pieceOfNews, index) in news" :key="index"
                     :header="pieceOfNews.header"
-                    :shortDescription="pieceOfNews.shortDescription"
+                    :short_description="pieceOfNews.short_description"
                     :text="pieceOfNews.text"
-                    :mark="pieceOfNews.mark"
+                    :date_published="pieceOfNews.date_published"
+                    :mark_text="pieceOfNews.mark_text"
+                    :mark_color="pieceOfNews.mark_color"
                     :selectedMarks="selectedMarks"/>
                 </div>
               </div>
@@ -61,34 +63,34 @@ export default {
     return {
       windowWidth: window.innerWidth,
       moveMainBlock: false,
-      news: [
-        {
-          header: 'Профилактика короновируса',
-          shortDescription: 'В связи с эпидемией короновируса просьба студентам прочитать следующую памятку.',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-          mark: {
-            text: 'Общее',
-            color: 'black'
-          }
-        },
-        {
-          header: 'Профилактика короновируса',
-          shortDescription: 'В связи с эпидемией короновируса просьба студентам прочитать следующую памятку.',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-          mark: {
-            text: 'Зюзино',
-            color: 'orange'
-          }
-        }
-      ],
+      // news: [
+      //   {
+      //     header: 'Профилактика короновируса',
+      //     short_description: 'В связи с эпидемией короновируса просьба студентам прочитать следующую памятку.',
+      //     text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      //     mark_text: 'Общее',
+      //     mark_color: 'black'
+      //   },
+      //   {
+      //     header: 'Профилактика короновируса',
+      //     short_description: 'В связи с эпидемией короновируса просьба студентам прочитать следующую памятку.',
+      //     text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      //     mark_text: 'Зюзино',
+      //     mark_color: 'orange'
+      //   }
+      // ],
       selectedMarks: [],
     };
   },
   computed: {
     ...mapState('sidebar', ['paddingMainBlock']),
+    ...mapState('news', ['news']),
     isMobile() {
       return this.windowWidth < 979;
     }
+  },
+  created() {
+    this.getNews();
   },
   mounted() {
     window.onresize = () => {
@@ -100,6 +102,7 @@ export default {
   },
   methods: {
     ...mapActions('sidebar', ['fixStateOfPadding']),
+    ...mapActions('news', ['getNews']),
     clearMarks() {
       this.selectedMarks = [];
     }

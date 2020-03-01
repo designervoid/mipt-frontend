@@ -90,6 +90,9 @@ const actions = {
     } else {
       commit(SET_PADDING_MAIN_BLOCK, '250px')
     }
+  },
+  fixStateOfPadding({ commit }) {
+    commit(SET_PADDING_MAIN_BLOCK, '50px')
   }
 
 };

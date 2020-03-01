@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import BlockNews from "@/components/BlockNews.vue";
 
 export default {
@@ -94,8 +94,12 @@ export default {
     window.onresize = () => {
       this.windowWidth = window.innerWidth;
     };
+    if (this.$refs.sidebar_menu.$children[0].collapsed && this.paddingMainBlock) {
+      this.fixStateOfPadding();
+    }
   },
   methods: {
+    ...mapActions('sidebar', ['fixStateOfPadding']),
     clearMarks() {
       this.selectedMarks = [];
     }

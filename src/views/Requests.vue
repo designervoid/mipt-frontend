@@ -3,7 +3,7 @@
     <main-header></main-header>
     <div class="container">
       <div class="columns">
-        <main-sidebar></main-sidebar>
+        <main-sidebar ref="sidebar_menu"></main-sidebar>
         <div class="column is-12" v-bind:style="{ 'padding-left': paddingMainBlock, 'transition': '0.55s all ease'  }">
           <div class="container">
             <div class="wrapped-container">
@@ -85,9 +85,7 @@
 </template>
 
 <script>
-import {
-  mapState
-} from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import BlockRequests from "@/components/BlockRequests.vue";
 
 export default {
@@ -135,8 +133,12 @@ export default {
     window.onresize = () => {
       this.windowWidth = window.innerWidth;
     };
+    if (this.$refs.sidebar_menu.$children[0].collapsed && this.paddingMainBlock) {
+      this.fixStateOfPadding();
+    }
   },
   methods: {
+    ...mapActions('sidebar', ['fixStateOfPadding']),
     changeStateOfNewRequest() {
       this.createNewRequest = !this.createNewRequest;
     }

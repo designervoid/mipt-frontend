@@ -9,7 +9,10 @@
       </div>
       <div class="wrapped-left-answer" v-if="answer.boolean === true">
         <b-collapse :open="false" position="is-top" aria-id="contentIdForA11y1">
-            <a slot="trigger" slot-scope="props" aria-controls="contentIdForA11y1">
+            <a slot="trigger" slot-scope="props" aria-controls="contentIdForA11y1"
+            style="align-self: center;
+            align-items: center;
+            display: flex;">
                 <b-icon :icon="!props.open ? 'caret-down' : 'caret-up'"></b-icon>
                 {{ !props.open ? 'Развернуть' : 'Свернуть' }}
             </a>
@@ -69,4 +72,5 @@ export default {
   text-align: right;
   padding-left: 3rem;
 }
+
 </style>

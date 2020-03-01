@@ -7,7 +7,6 @@ import news from "@/store/modules/news";
 import orders from "@/store/modules/orders";
 import feedback from "@/store/modules/feedback";
 
-
 Vue.use(Vuex);
 
 export default new Vuex.Store({

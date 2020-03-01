@@ -38,30 +38,40 @@
           {{ descriptionOfApproval }}
         </button>
         <span v-if="progressApproval === 'Обработка'">{{
-        descriptionOfApproval
+          descriptionOfApproval
         }}</span>
         <span v-if="progressApproval === 'Подтверждено'">{{
           descriptionOfApproval
         }}</span>
       </div>
       <b-modal :active.sync="isCardModalActive" :width="600" scroll="keep">
-                  <div class="card">
-                      <div class="card-header">
-                          Подать жалобу на выполненную заявку:
-                      </div>
-                      <div class="card-content">
-                          <div class="content">
-                            <b-field>
-                                        <b-input maxlength="200" type="textarea" placeholder="Опишите, что вас не устроило"></b-input>
-                            </b-field>
-                          </div>
-                      </div>
-                      <div class="card-footer">
-                        <b-button type="is-link close-button-footer" @click="closeModal()" inverted rounded>Отменить</b-button>
-                        <b-button type="is-link" rounded>Отправить</b-button>
-                      </div>
-                  </div>
-              </b-modal>
+        <div class="card">
+          <div class="card-header">
+            Подать жалобу на выполненную заявку:
+          </div>
+          <div class="card-content">
+            <div class="content">
+              <b-field>
+                <b-input
+                  maxlength="200"
+                  type="textarea"
+                  placeholder="Опишите, что вас не устроило"
+                ></b-input>
+              </b-field>
+            </div>
+          </div>
+          <div class="card-footer">
+            <b-button
+              type="is-link close-button-footer"
+              @click="closeModal()"
+              inverted
+              rounded
+              >Отменить</b-button
+            >
+            <b-button type="is-link" rounded>Отправить</b-button>
+          </div>
+        </div>
+      </b-modal>
     </div>
   </div>
 </template>
@@ -71,36 +81,36 @@ export default {
   data() {
     return {
       isCardModalActive: false
-    }
+    };
   },
   props: {
     professionType: {
       type: String,
-      default () {
+      default() {
         return "";
       }
     },
     descriptionOfProblem: {
       type: String,
-      default () {
+      default() {
         return "";
       }
     },
     progressApproval: {
       type: String,
-      default () {
+      default() {
         return "";
       }
     },
     descriptionOfApproval: {
       type: String,
-      default () {
+      default() {
         return "";
       }
     },
     date: {
       type: String,
-      default () {
+      default() {
         return "";
       }
     }

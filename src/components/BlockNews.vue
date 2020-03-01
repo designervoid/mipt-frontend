@@ -1,6 +1,9 @@
 <template lang="html">
   <transition name="fade">
-    <div class="block" v-if="selectedMarks.includes(mark_text) || selectedMarks.length === 0">
+    <div
+      class="block"
+      v-if="selectedMarks.includes(mark_text) || selectedMarks.length === 0"
+    >
       <div class="wrapped-left-block">
         <div class="wrapped-left-heading has-text-grey-light">
           {{ date_published }}
@@ -13,7 +16,11 @@
           <div class="text">{{ text }}</div>
         </div>
       </div>
-      <div class="wrapped-right-block" v-bind:style="{ 'background-color': mark_color }" @click="selectMark(mark_text)">
+      <div
+        class="wrapped-right-block"
+        v-bind:style="{ 'background-color': mark_color }"
+        @click="selectMark(mark_text)"
+      >
         {{ mark_text }}
       </div>
     </div>
@@ -26,55 +33,55 @@ export default {
     header: {
       type: String,
       default() {
-        return ''
+        return "";
       }
     },
     short_description: {
       type: String,
       default() {
-        return ''
+        return "";
       }
     },
     text: {
       type: String,
       default() {
-        return ''
+        return "";
       }
     },
     mark_text: {
       type: String,
       default() {
-        return ''
+        return "";
       }
     },
     date_published: {
       type: String,
       default() {
-        return ''
+        return "";
       }
     },
     mark_color: {
       type: String,
       default() {
-        return ''
+        return "";
       }
     },
     selectedMarks: {
       type: Array,
       default() {
-        return []
+        return [];
       }
     }
   },
   data() {
     return {
-      showMoreText: false,
-    }
+      showMoreText: false
+    };
   },
   methods: {
     selectMark(markText) {
       if (!this.selectedMarks.includes(markText)) {
-          this.selectedMarks.push(markText);
+        this.selectedMarks.push(markText);
       }
     }
   }
@@ -105,7 +112,7 @@ export default {
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.125);
 }
 .wrapped-right-block:hover {
-  background-color: #EFEFEF !important;
+  background-color: #efefef !important;
   color: black;
 }
 .wrapped-left-description {
@@ -117,11 +124,11 @@ export default {
   margin-bottom: 1rem;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
   opacity: 0;
 }
-
 </style>

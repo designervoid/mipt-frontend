@@ -4,43 +4,69 @@
     <div class="container">
       <div class="columns">
         <main-sidebar ref="sidebar_menu"></main-sidebar>
-        <div class="column is-12" v-bind:style="{ 'padding-left': paddingMainBlock, 'transition': '0.55s all ease'  }">
+        <div
+          class="column is-12"
+          v-bind:style="{
+            'padding-left': paddingMainBlock,
+            transition: '0.55s all ease'
+          }"
+        >
           <div class="container">
             <div class="wrapped-container">
               <div class="columns">
                 <div class="column is-12">
                   <div class="wrapped-header">
-                    <h1 class="title news-header-text" v-bind:class="!isMobile ? 'is-2' : 'is-4'">Новости</h1>
+                    <h1
+                      class="title news-header-text"
+                      v-bind:class="!isMobile ? 'is-2' : 'is-4'"
+                    >
+                      Новости
+                    </h1>
                     <div class="filter-buttons">
-                      <b-button v-if="selectedMarks.length > 0"
+                      <b-button
+                        v-if="selectedMarks.length > 0"
                         type="is-light clear-selected-marks"
-                      @click="clearMarks();">Очистить метки</b-button>
+                        @click="clearMarks()"
+                        >Очистить метки</b-button
+                      >
                       <b-dropdown
-                          v-model="selectedMarks"
-                          multiple
-                          aria-role="list">
-                          <button class="button is-info selected-marks" type="button" slot="trigger">
-                              <span v-if="selectedMarks.length > 0">Выбрано меток ({{ selectedMarks.length }})</span>
-                              <span v-else>Выбрать метки</span>
-                          </button>
+                        v-model="selectedMarks"
+                        multiple
+                        aria-role="list"
+                      >
+                        <button
+                          class="button is-info selected-marks"
+                          type="button"
+                          slot="trigger"
+                        >
+                          <span v-if="selectedMarks.length > 0"
+                            >Выбрано меток ({{ selectedMarks.length }})</span
+                          >
+                          <span v-else>Выбрать метки</span>
+                        </button>
 
-                          <b-dropdown-item v-for="(pieceOfNews, index) in news" :key="index"
+                        <b-dropdown-item
+                          v-for="(pieceOfNews, index) in news"
+                          :key="index"
                           :value="pieceOfNews.mark_text"
                           aria-role="listitem"
-                          >
-                              <span>{{ pieceOfNews.mark_text }}</span>
-                          </b-dropdown-item>
+                        >
+                          <span>{{ pieceOfNews.mark_text }}</span>
+                        </b-dropdown-item>
                       </b-dropdown>
                     </div>
                   </div>
-                    <BlockNews v-for="(pieceOfNews, index) in news" :key="index"
+                  <BlockNews
+                    v-for="(pieceOfNews, index) in news"
+                    :key="index"
                     :header="pieceOfNews.header"
                     :short_description="pieceOfNews.short_description"
                     :text="pieceOfNews.text"
                     :date_published="pieceOfNews.date_published"
                     :mark_text="pieceOfNews.mark_text"
                     :mark_color="pieceOfNews.mark_color"
-                    :selectedMarks="selectedMarks"/>
+                    :selectedMarks="selectedMarks"
+                  />
                 </div>
               </div>
             </div>
@@ -52,7 +78,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions } from "vuex";
 import BlockNews from "@/components/BlockNews.vue";
 
 export default {
@@ -63,12 +89,12 @@ export default {
     return {
       windowWidth: window.innerWidth,
       moveMainBlock: false,
-      selectedMarks: [],
+      selectedMarks: []
     };
   },
   computed: {
-    ...mapState('sidebar', ['paddingMainBlock']),
-    ...mapState('news', ['news']),
+    ...mapState("sidebar", ["paddingMainBlock"]),
+    ...mapState("news", ["news"]),
     isMobile() {
       return this.windowWidth < 979;
     }
@@ -80,13 +106,16 @@ export default {
     window.onresize = () => {
       this.windowWidth = window.innerWidth;
     };
-    if (this.$refs.sidebar_menu.$children[0].collapsed && this.paddingMainBlock) {
+    if (
+      this.$refs.sidebar_menu.$children[0].collapsed &&
+      this.paddingMainBlock
+    ) {
       this.fixStateOfPadding();
     }
   },
   methods: {
-    ...mapActions('sidebar', ['fixStateOfPadding']),
-    ...mapActions('news', ['getNews']),
+    ...mapActions("sidebar", ["fixStateOfPadding"]),
+    ...mapActions("news", ["getNews"]),
     clearMarks() {
       this.selectedMarks = [];
     }
@@ -155,5 +184,4 @@ a.dropdown-item.is-active {
     width: 100% !important;
   }
 }
-
 </style>

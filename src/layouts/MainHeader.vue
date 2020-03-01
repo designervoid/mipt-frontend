@@ -29,15 +29,15 @@
       <div class="navbar-start"></div>
 
       <div class="navbar-end">
-        <a class="navbar-item" @click="pushToPersonalArea();">
+        <a class="navbar-item" @click="pushToPersonalArea()">
           Личный кабинет
         </a>
 
-        <a class="navbar-item" @click="pushToContactsProfile();">
+        <a class="navbar-item" @click="pushToContactsProfile()">
           Профиль
         </a>
 
-        <a class="navbar-item" @click="exit();">
+        <a class="navbar-item" @click="exit()">
           Выход
         </a>
       </div>
@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -54,23 +54,24 @@ export default {
     };
   },
   methods: {
-    ...mapActions('sidebar', ['changeSidebarHeader', 'changeStateOfPadding']),
+    ...mapActions("sidebar", ["changeSidebarHeader", "changeStateOfPadding"]),
     toggleMenu() {
       this.isToggledMenu = !this.isToggledMenu;
     },
     pushToPersonalArea() {
-      this.changeSidebarHeader({ headerText: 'Личный кабинет' });
+      this.changeSidebarHeader({ headerText: "Личный кабинет" });
       this.changeStateOfPadding({ isCollapsed: true });
-      if (this.$route.path !== '/news') this.$router.push('/news')
+      if (this.$route.path !== "/news") this.$router.push("/news");
     },
     pushToContactsProfile() {
-      this.changeSidebarHeader({ headerText: 'Профиль' });
+      this.changeSidebarHeader({ headerText: "Профиль" });
       this.changeStateOfPadding({ isCollapsed: true });
-      if (this.$route.path !== '/data-profile') this.$router.push('/data-profile')
+      if (this.$route.path !== "/data-profile")
+        this.$router.push("/data-profile");
     },
     exit() {
-      this.changeSidebarHeader({ headerText: '' });
-      this.$router.push('/login');
+      this.changeSidebarHeader({ headerText: "" });
+      this.$router.push("/login");
     }
   }
 };
@@ -86,7 +87,7 @@ nav {
 }
 .navbar-item,
 .navbar-link {
-  text-align:center;
+  text-align: center;
   color: #ffffff;
 }
 

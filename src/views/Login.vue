@@ -1,25 +1,40 @@
 <template>
   <section>
-  <div class="container1">
-    <div class="menu-header">
-      <img src="@/assets/mipt_rus_inv.png" alt="Logo">
+    <div class="container1">
+      <div class="menu-header">
+        <img src="@/assets/mipt_rus_inv.png" alt="Logo" />
+      </div>
+      <div class="menu">
+        <h1>Авторизация</h1>
+        <p>
+          Привет всем заходящим пришельцам. <br />
+          Войдите на наш жилищно-бытовой сервис!
+        </p>
+        <b-field label="" :type="validateField('email')">
+          <b-input
+            class="input-field e-mail"
+            v-model.trim="form.email"
+            @input="setField('email', $event)"
+            @focus="onFocusField('email')"
+            @blur="onBlurField('email')"
+          >
+          </b-input>
+        </b-field>
+        <b-field label="" :type="validateField('password')">
+          <b-input
+            class="input-field pass"
+            v-model.trim="form.password"
+            @input="setField('password', $event)"
+            @focus="onFocusField('password')"
+            @blur="onBlurField('password')"
+            password-reveal
+          >
+          </b-input>
+        </b-field>
+        <b-button class="button1" @click="login()">Login</b-button>
+      </div>
     </div>
-    <div class="menu">
-      <h1>Авторизация</h1>
-      <p>Привет всем заходящим пришельцам. <br>
-         Войдите на наш жилищно-бытовой сервис!</p>
-      <b-field label="" :type="validateField('email')">
-        <b-input class="input-field e-mail" v-model.trim="form.email" @input="setField('email', $event)" @focus="onFocusField('email')" @blur="onBlurField('email')">
-        </b-input>
-      </b-field>
-      <b-field label="" :type="validateField('password')">
-        <b-input class="input-field pass" v-model.trim="form.password" @input="setField('password', $event)" @focus="onFocusField('password')" @blur="onBlurField('password')" password-reveal>
-        </b-input>
-      </b-field>
-      <b-button class="button1" @click="login();">Login</b-button>
-    </div>
-  </div>
-</section>
+  </section>
 </template>
 
 <script>
@@ -105,7 +120,7 @@ section {
   width: 100%;
 }
 .container1 {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   max-width: 1280px;
   height: 484px;
   display: flex;
@@ -116,7 +131,7 @@ section {
 }
 
 .menu-header {
-  background-color: #0069B4;
+  background-color: #0069b4;
   width: 426px;
   height: 72px;
   text-align: center;
@@ -174,21 +189,26 @@ p {
   border-radius: 5px;
   width: 311px;
   height: 46px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 img {
   width: 128.13px;
   height: 56px;
 }
-  @media screen and (max-width: 768px) {
-  section {width: 105%;}
+@media screen and (max-width: 768px) {
+  section {
+    width: 105%;
+  }
 }
-  @media screen and (max-width: 375px) {
-  section {width: 130%;}
+@media screen and (max-width: 375px) {
+  section {
+    width: 130%;
+  }
   /* section {height: 500px;} */
 }
-   @media screen and (max-width: 320px) {
-     section {width: 144%;}
+@media screen and (max-width: 320px) {
+  section {
+    width: 144%;
+  }
 }
-
 </style>

@@ -9,23 +9,27 @@
       </div>
       <div class="wrapped-left-answer" v-if="answer.boolean === true">
         <b-collapse :open="false" position="is-top" aria-id="contentIdForA11y1">
-            <a slot="trigger" slot-scope="props" aria-controls="contentIdForA11y1"
+          <a
+            slot="trigger"
+            slot-scope="props"
+            aria-controls="contentIdForA11y1"
             style="align-self: center;
             align-items: center;
-            display: flex;">
-                <b-icon :icon="!props.open ? 'caret-down' : 'caret-up'"></b-icon>
-                {{ !props.open ? 'Развернуть' : 'Свернуть' }}
-            </a>
-            <p>
-                {{ answer.text }}
-            </p>
+            display: flex;"
+          >
+            <b-icon :icon="!props.open ? 'caret-down' : 'caret-up'"></b-icon>
+            {{ !props.open ? "Развернуть" : "Свернуть" }}
+          </a>
+          <p>
+            {{ answer.text }}
+          </p>
         </b-collapse>
       </div>
     </div>
     <div class="wrapped-right-block">
       <div class="wrapped-right-heading title is-5"></div>
       <div class="wrapped-right-description has-text-warning">
-        {{ answer.boolean === false ? 'Ожидается ответ' : ''}}
+        {{ answer.boolean === false ? "Ожидается ответ" : "" }}
       </div>
     </div>
   </div>
@@ -37,21 +41,21 @@ export default {
     date: {
       type: String,
       default() {
-        return ''
+        return "";
       }
     },
     question: {
       type: String,
       default() {
-        return ''
+        return "";
       }
     },
     answer: {
       type: Object,
       default() {
-        return {}
+        return {};
       }
-    },
+    }
   }
 };
 </script>
@@ -72,5 +76,4 @@ export default {
   text-align: right;
   padding-left: 3rem;
 }
-
 </style>

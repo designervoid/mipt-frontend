@@ -33,7 +33,10 @@
         <button
           class="button is-primary is-rounded"
           v-if="progressApproval === 'Выполнено'"
-          @click="isCardModalActive = true; activateFilterDropdown();"
+          @click="
+            isCardModalActive = true;
+            activateFilterDropdown();
+          "
           @close="test()"
         >
           {{ descriptionOfApproval }}
@@ -78,7 +81,7 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex';
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -126,7 +129,7 @@ export default {
       this.changeStateOfHideSidebar();
     },
     test() {
-      console.log('test')
+      console.log("test");
     }
   }
 };

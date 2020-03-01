@@ -32,7 +32,12 @@
           >
           </b-input>
         </b-field>
-        <b-button class="button1" @click="login()" :disabled="isValidEmail || isValidPassword">Login</b-button>
+        <b-button
+          class="button1"
+          @click="login()"
+          :disabled="isValidEmail || isValidPassword"
+          >Login</b-button
+        >
       </div>
     </div>
   </section>

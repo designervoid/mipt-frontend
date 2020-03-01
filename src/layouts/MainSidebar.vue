@@ -15,12 +15,15 @@
 import { mapState, mapActions } from "vuex";
 export default {
   data() {
-    return {
-
-    };
+    return {};
   },
   computed: {
-    ...mapState("sidebar", ["sidebarHeader", "sidebarNavigation", "isCollapsed", "isHideSidebar"])
+    ...mapState("sidebar", [
+      "sidebarHeader",
+      "sidebarNavigation",
+      "isCollapsed",
+      "isHideSidebar"
+    ])
   },
   methods: {
     ...mapActions("sidebar", ["changeStateOfPadding"]),
@@ -39,12 +42,13 @@ export default {
   color: #ffffff !important;
   margin: 0 !important;
 }
-.vsm--header, .vsm--title {
+.vsm--header,
+.vsm--title {
   font-size: 0.5rem !important;
 }
 
 .vsm--link {
-  width:100%;
+  width: 100%;
   display: flex !important;
   justify-content: center !important;
   flex-direction: column;
@@ -54,7 +58,7 @@ export default {
 
 .vsm--item {
   display: flex !important;
-  width:100%;
+  width: 100%;
   transition: top 0.55s all ease;
 }
 /* .vsm--toggle-btn {

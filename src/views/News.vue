@@ -33,7 +33,7 @@
                         v-model="selectedMarks"
                         multiple
                         aria-role="list"
-                        @active-change="activateFilterDropdown();"
+                        @active-change="activateFilterDropdown()"
                       >
                         <button
                           class="button is-info selected-marks"
@@ -174,7 +174,7 @@ a.dropdown-item.is-active {
   .title.news-header-text.is-4 {
     margin-bottom: 1rem !important;
     text-align: left;
-    width:100%;
+    width: 100%;
   }
   .filter-buttons {
     flex-direction: column;

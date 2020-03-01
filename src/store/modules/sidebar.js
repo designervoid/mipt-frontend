@@ -10,17 +10,17 @@ const state = {
   sidebarNavigation: [
     {
       href: "/news",
-      title: 'Новости',
+      title: "Новости",
       icon: "far fa-newspaper"
     },
     {
       href: "/orders",
-      title: 'Заявки',
+      title: "Заявки",
       icon: "far fa-list-alt"
     },
     {
       href: "/feedback",
-      title: 'Фидбек',
+      title: "Фидбек",
       icon: "far fa-comment-dots"
     }
   ],
@@ -39,17 +39,17 @@ const actions = {
       commit(SET_SIDEBAR_NAVIGATION, [
         {
           href: "/news",
-          title: 'Новости',
+          title: "Новости",
           icon: "far fa-newspaper"
         },
         {
           href: "/orders",
-          title: 'Заявки',
+          title: "Заявки",
           icon: "far fa-list-alt"
         },
         {
           href: "/feedback",
-          title: 'Фидбек',
+          title: "Фидбек",
           icon: "far fa-comment-dots"
         }
       ]);
@@ -57,17 +57,17 @@ const actions = {
       commit(SET_SIDEBAR_NAVIGATION, [
         {
           href: "/data-profile",
-          title: 'Профиль',
+          title: "Профиль",
           icon: "fa fa-user"
         },
         {
           href: "/contacts-profile",
-          title: 'Контакты',
+          title: "Контакты",
           icon: "far fa-building"
         },
         {
           href: "/useful-info",
-          title: 'Информация',
+          title: "Информация",
           icon: "far fa-clipboard"
         }
       ]);

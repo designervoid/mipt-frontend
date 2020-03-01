@@ -124,13 +124,6 @@ export default {
 </script>
 
 <style lang="css">
-.block {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  white-space: nowrap;
-  overflow: auto;
-}
 .wrapped-left-block {
   text-align: left;
   padding-right: 3rem;

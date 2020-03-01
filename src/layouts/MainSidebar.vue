@@ -2,13 +2,12 @@
   <sidebar-menu
     :menu="sidebarNavigation"
     @toggle-collapse="onToggleCollapse"
-    width="250px"
+    width="150px"
     widthCollapsed="50px"
     :collapsed="true"
     ref="sidebar_menu"
-    theme="white-theme"
   >
-    <span slot="toggle-icon">Open menu</span>
+    <span slot="toggle-icon"><i class="fas fa-arrow-right"></i></span>
   </sidebar-menu>
 </template>
 <script>
@@ -33,8 +32,11 @@ export default {
   padding: 1rem;
 }
 .vsm--icon {
-  background-color: #ffffff !important;
-  color: black !important;
+  background-color: #2a2a2e !important;
+  color: #ffffff !important;
+}
+.vsm--title {
+  font-size: 0.5rem;
 }
 .vsm--icon:active {
   background-color: black !important;

@@ -20,12 +20,12 @@ const state = {
     {
       href: "/orders",
       title: "Заявки",
-      icon: "far fa-user"
+      icon: "far fa-list-alt"
     },
     {
       href: "/feedback",
       title: "Обратная связь",
-      icon: "far fa-user"
+      icon: "far fa-comment-dots"
     }
   ],
   paddingMainBlock: "50px"
@@ -52,12 +52,12 @@ const actions = {
         {
           href: "/orders",
           title: "Заявки",
-          icon: "far fa-user"
+          icon: "far fa-list-alt"
         },
         {
           href: "/feedback",
           title: "Обратная связь",
-          icon: "far fa-user"
+          icon: "far fa-comment-dots"
         }
       ]);
     } else if (headerText === "Профиль") {
@@ -91,7 +91,7 @@ const actions = {
     if (payload.isCollapsed) {
       commit(SET_PADDING_MAIN_BLOCK, "50px");
     } else {
-      commit(SET_PADDING_MAIN_BLOCK, "250px");
+      commit(SET_PADDING_MAIN_BLOCK, "150px");
     }
   },
   fixStateOfPadding({ commit }) {

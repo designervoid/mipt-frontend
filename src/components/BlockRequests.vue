@@ -30,6 +30,7 @@
         <button
           class="button is-primary is-rounded"
           v-if="progressApproval === 'Выполнено'"
+          @click="isCardModalActive = true"
         >
           {{ descriptionOfApproval }}
         </button>
@@ -40,36 +41,64 @@
           descriptionOfApproval
         }}</span>
       </div>
+      <b-modal :active.sync="isCardModalActive" :width="600" scroll="keep">
+                  <div class="card">
+                      <div class="card-header">
+                          Подать жалобу на выполненную заявку:
+                      </div>
+                      <div class="card-content">
+                          <div class="content">
+                            <b-field label="Опишите, что вас не устроило">
+                                        <b-input maxlength="200" type="textarea"></b-input>
+                            </b-field>
+                          </div>
+                      </div>
+                      <div class="card-footer">
+                        <b-button type="is-link" @click="closeModal()" inverted>Отменить</b-button>
+                        <b-button type="is-link">Отправить</b-button>
+                      </div>
+                  </div>
+              </b-modal>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      isCardModalActive: false
+    }
+  },
   props: {
     professionType: {
       type: String,
-      default() {
+      default () {
         return "";
       }
     },
     descriptionOfProblem: {
       type: String,
-      default() {
+      default () {
         return "";
       }
     },
     progressApproval: {
       type: String,
-      default() {
+      default () {
         return "";
       }
     },
     descriptionOfApproval: {
       type: String,
-      default() {
+      default () {
         return "";
       }
+    }
+  },
+  methods: {
+    closeModal() {
+      this.isCardModalActive = false;
     }
   }
 };

@@ -40,9 +40,10 @@
                   </p>
                   <b-dropdown
                       v-model="selectedCategory"
-                      aria-role="list">
-                      <button class="button is-link" type="button" slot="trigger">
-                          Выберите категорию
+                      aria-role="list"
+                      style="margin-top: 1rem; margin-bottom: 1rem;">
+                      <button class="button is-link selectedCategory" type="button" slot="trigger">
+                        {{ selectedCategory.length > 0 ? selectedCategory : 'Выберите категорию' }}
                           <b-icon icon="caret-down"></b-icon>
                       </button>
 
@@ -56,7 +57,7 @@
                               </b-input>
                           </b-field>
                             <div class="category-buttons">
-                              <b-button type="is-link" inverted>Отмена</b-button>
+                              <b-button type="is-link" inverted @click="changeStateOfNewRequest();">Отмена</b-button>
                               <b-button type="is-link">Отправить</b-button>
                             </div>
                 </div>
@@ -102,6 +103,7 @@ export default {
         'Электрик',
         'Плотник'
       ],
+      selectedCategory: '',
       requests: [{
           professionType: "Сантехник",
           descriptionOfProblem: "Протек смеситель",
@@ -136,13 +138,13 @@ export default {
   },
   methods: {
     changeStateOfNewRequest() {
-      this.createNewRequest = true;
+      this.createNewRequest = !this.createNewRequest;
     }
   }
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 .wrapped-container {
   padding: 2rem;
 }
@@ -150,6 +152,11 @@ export default {
   margin-top: 2rem;
   width: 409px;
   height: 64px;
+}
+
+.dropdown, .dropdown-trigger, .selectedCategory,
+.dropdown-menu, .dropdown-content {
+  width: 100%;
 }
 
 @media screen and (max-width: 979px) {

@@ -88,7 +88,7 @@ const actions = {
     if (payload.isCollapsed) {
       commit(SET_PADDING_MAIN_BLOCK, '50px')
     } else {
-      commit(SET_PADDING_MAIN_BLOCK, '200px')
+      commit(SET_PADDING_MAIN_BLOCK, '250px')
     }
   }
 

@@ -48,7 +48,7 @@
           descriptionOfApproval
         }}</span>
       </div>
-      <b-modal :active.sync="isCardModalActive" :width="600" scroll="keep">
+      <b-modal :active.sync="isCardModalActive" @close="activateFilterDropdown();" :width="600" scroll="keep">
         <div class="card">
           <div class="card-header">
             Подать жалобу на выполненную заявку:
@@ -67,7 +67,7 @@
           <div class="card-footer">
             <b-button
               type="is-link close-button-footer"
-              @click="closeModal()"
+              @click="closeModal(); activateFilterDropdown();"
               inverted
               rounded
               >Отменить</b-button
